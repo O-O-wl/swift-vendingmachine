@@ -1,5 +1,5 @@
 //
-//  SweetMilk.swift
+//  ChocolateMilk.swift
 //  VendingMachine
 //
 //  Created by 이동영 on 14/08/2019.
