@@ -13,7 +13,7 @@ class Americano: Coffee {
     
     var isWatery: Bool {
         return waterContent > 300
-    }O
+    }
     
     // MARK: - Methods
     
