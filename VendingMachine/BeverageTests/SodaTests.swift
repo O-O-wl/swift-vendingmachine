@@ -9,25 +9,81 @@
 import XCTest
 
 class SodaTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    
+    func testSodaDescription() {
+        
+        //Given
+        let brand = "코드스쿼드"
+        let capacity = 200
+        let price = 500
+        let name = "탄산음료"
+        let current =  Date()
+        
+        let beverage = Soda(
+            brand: brand,
+            capacity: capacity,
+            price: price,
+            name: name,
+            productDate: current)
+        let expected = "\(brand), \(capacity)ml, \(price)원, \(name), \(current.text)"
+        
+        //When
+        let result = beverage.description
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testCola() {
+        
+        //Given
+        let brand = "코카-콜라 컴퍼니"
+        let capacity = 500
+        let price = 2500
+        let name = "코카-콜라"
+        let current =  Date()
+        let cocaberryContent = 50
+        
+        let coke = Cola(brand: brand,
+                        capacity: capacity,
+                        price: price,
+                        name: name,
+                        productDate: current,
+                        cocaberryContent: cocaberryContent)
+        let expected = true
+        
+        //When
+        let result = coke.isAddictive
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testStrawberryMilk() {
+        
+        
+        //Given
+        let brand = "레드불 컴퍼니"
+        let capacity = 500
+        let price = 2500
+        let name = "레드불"
+        let current =  Date()
+        let caffeineContent = 50
+        
+        let redBull = EnergyDrink(brand: brand,
+                               capacity: capacity,
+                               price: price,
+                               name: name,
+                               productDate: current,
+                               caffeineContent: caffeineContent)
+        let expected = false
+        
+        //When
+        let result = redBull.isHighCaffeine
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }

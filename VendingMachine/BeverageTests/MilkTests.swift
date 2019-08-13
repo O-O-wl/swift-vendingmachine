@@ -9,25 +9,77 @@
 import XCTest
 
 class MilkTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testMilkDescription() {
+        
+        //Given
+        let brand = "코드스쿼드"
+        let capacity = 200
+        let price = 500
+        let name = "우유"
+        let current =  Date()
+        
+        let beverage = Milk(
+            brand: brand,
+            capacity: capacity,
+            price: price,
+            name: name,
+            productDate: current)
+        let expected = "\(brand), \(capacity)ml, \(price)원, \(name), \(current.text)"
+        
+        //When
+        let result = beverage.description
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testStrawberryMilk() {
+        
+        //Given
+        let brand = "서울우유"
+        let capacity = 200
+        let price = 500
+        let name = "딸기우유"
+        let current =  Date()
+        let strawberryContent = 50
+        let strawberryMilk = StrawberryMilk(brand: brand,
+                                            capacity: capacity,
+                                            price: price,
+                                            name: name,
+                                            productDate: current,
+                                            strawberryContent: strawberryContent)
+        let expected = true
+        
+        //When
+        let result = strawberryMilk.isSweet
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testChocolateMilk() {
+        
+        //Given
+        let brand = "GS25"
+        let capacity = 500
+        let price = 500
+        let name = "스누피 초코우유"
+        let current =  Date()
+        let chocolateContent = 50
+        let chocolateMilk = ChocolateMilk(brand: brand,
+                                            capacity: capacity,
+                                            price: price,
+                                            name: name,
+                                            productDate: current,
+                                            chocolateContent: chocolateContent)
+        let expected = true
+        
+        //When
+        let result = chocolateMilk.isSweet
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }

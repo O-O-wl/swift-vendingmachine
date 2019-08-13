@@ -12,6 +12,14 @@
 		0E3EF1662303361900B27341 /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF1652303361900B27341 /* Cola.swift */; };
 		0E3EF168230337C600B27341 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF167230337C600B27341 /* Americano.swift */; };
 		0E3EF16A23033BF700B27341 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF16923033BF700B27341 /* ChocolateMilk.swift */; };
+		0E3EF16C2303457200B27341 /* MilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF16B2303457200B27341 /* MilkTests.swift */; };
+		0E3EF16E2303458E00B27341 /* SodaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF16D2303458E00B27341 /* SodaTests.swift */; };
+		0E3EF170230345C900B27341 /* CoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF16F230345C900B27341 /* CoffeeTests.swift */; };
+		0E3EF1712303465400B27341 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF167230337C600B27341 /* Americano.swift */; };
+		0E3EF1722303465C00B27341 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF1612303326B00B27341 /* EnergyDrink.swift */; };
+		0E3EF1732303466100B27341 /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF1652303361900B27341 /* Cola.swift */; };
+		0E3EF1742303466500B27341 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF1632303331D00B27341 /* StrawberryMilk.swift */; };
+		0E3EF1752303466700B27341 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EF16923033BF700B27341 /* ChocolateMilk.swift */; };
 		0E3F1D972302820500FC08DC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D962302820500FC08DC /* Beverage.swift */; };
 		0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9A2302824900FC08DC /* Extensions.swift */; };
 		0E3F1D9E2302832A00FC08DC /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9D2302832A00FC08DC /* Milk.swift */; };
@@ -46,6 +54,9 @@
 		0E3EF1652303361900B27341 /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
 		0E3EF167230337C600B27341 /* Americano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Americano.swift; sourceTree = "<group>"; };
 		0E3EF16923033BF700B27341 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
+		0E3EF16B2303457200B27341 /* MilkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTests.swift; sourceTree = "<group>"; };
+		0E3EF16D2303458E00B27341 /* SodaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaTests.swift; sourceTree = "<group>"; };
+		0E3EF16F230345C900B27341 /* CoffeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTests.swift; sourceTree = "<group>"; };
 		0E3F1D962302820500FC08DC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		0E3F1D9A2302824900FC08DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0E3F1D9D2302832A00FC08DC /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -109,6 +120,9 @@
 		0E3F1DA42302835700FC08DC /* BeverageTests */ = {
 			isa = PBXGroup;
 			children = (
+				0E3EF16F230345C900B27341 /* CoffeeTests.swift */,
+				0E3EF16D2303458E00B27341 /* SodaTests.swift */,
+				0E3EF16B2303457200B27341 /* MilkTests.swift */,
 				0E3F1DA52302835700FC08DC /* BeverageTests.swift */,
 				0E3F1DA72302835700FC08DC /* Info.plist */,
 			);
@@ -254,12 +268,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E3F1DAC2302836A00FC08DC /* Beverage.swift in Sources */,
+				0E3EF170230345C900B27341 /* CoffeeTests.swift in Sources */,
 				0E3F1DAB2302836800FC08DC /* Milk.swift in Sources */,
+				0E3EF16C2303457200B27341 /* MilkTests.swift in Sources */,
 				0E3F1DA62302835700FC08DC /* BeverageTests.swift in Sources */,
 				0E3F1DAD2302836C00FC08DC /* Extensions.swift in Sources */,
 				0E3F1DBA2302A34100FC08DC /* CafeLatte.swift in Sources */,
+				0E3EF1742303466500B27341 /* StrawberryMilk.swift in Sources */,
 				0E3F1DB12302903800FC08DC /* Soda.swift in Sources */,
+				0E3EF16E2303458E00B27341 /* SodaTests.swift in Sources */,
 				0E3F1DB52302928E00FC08DC /* Coffee.swift in Sources */,
+				0E3EF1722303465C00B27341 /* EnergyDrink.swift in Sources */,
+				0E3EF1752303466700B27341 /* ChocolateMilk.swift in Sources */,
+				0E3EF1732303466100B27341 /* Cola.swift in Sources */,
+				0E3EF1712303465400B27341 /* Americano.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
