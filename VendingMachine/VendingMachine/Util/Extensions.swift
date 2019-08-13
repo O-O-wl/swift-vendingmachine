@@ -15,3 +15,9 @@ extension Date {
         return dateFormmater.string(from: self)
     }
 }
+
+
+func print<T: Beverage>(beverage: T) {
+    print("\(type(of:beverage)) - \(beverage.description)")
+}
+
