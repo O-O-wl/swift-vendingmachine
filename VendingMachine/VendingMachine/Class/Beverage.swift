@@ -20,8 +20,7 @@ class Beverage {
         capacity: Int = 0,
         price: Int = 0,
         name: String = "음료",
-        productDate: Date = Date()
-        ) {
+        productDate: Date = Date()) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
