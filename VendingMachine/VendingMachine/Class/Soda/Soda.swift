@@ -9,8 +9,10 @@
 import Foundation
 
 class Soda: Beverage {
+    // MARK: - Properties
     private let isSugerFree: Bool
     
+    // MARK: - Methods
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,

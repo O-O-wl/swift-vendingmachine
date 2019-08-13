@@ -9,8 +9,16 @@
 import Foundation
 
 class Coffee: Beverage {
+    // MARK: Nested enum CoffeeBean
+    enum CoffeeBean {
+        case arabica
+        case robusta
+        case luwak
+    }
+    // MARK: - Properties
     private let coffeeBean: CoffeeBean
-    
+   
+    // MARK: - Methods
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
@@ -26,13 +34,5 @@ class Coffee: Beverage {
             price: price,
             name: name,
             productDate: productDate)
-    }
-}
-// MARK: - + Nested Type CoffeeBean
-extension Coffee {
-    enum CoffeeBean {
-        case arabica
-        case robusta
-        case luwak
     }
 }

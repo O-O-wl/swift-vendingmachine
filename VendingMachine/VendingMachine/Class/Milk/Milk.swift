@@ -9,9 +9,11 @@
 import Foundation
 
 class Milk: Beverage {
+    // MARK: - Properties
     private let hasLowFat: Bool
     private let hasLactase: Bool
     
+    // MARK: - Methods
     init(
         brand: String = "제조사",
         capacity: Int = 0,
