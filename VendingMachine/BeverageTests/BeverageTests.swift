@@ -39,13 +39,37 @@ class BeverageTests: XCTestCase {
     func testMilkDescription() {
         
         //Given
-        let brand = "서울우유"
+        let brand = "코드스쿼드"
         let capacity = 200
         let price = 500
-        let name = "딸기우유"
+        let name = "우유"
         let current =  Date()
         
         let beverage = Milk(
+            brand: brand,
+            capacity: capacity,
+            price: price,
+            name: name,
+            productDate: current)
+        let expected = "\(brand), \(capacity)ml, \(price)원, \(name), \(current.text)"
+        
+        //When
+        let result = beverage.description
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func testSodaDescription() {
+        
+        //Given
+        let brand = "코드스쿼드"
+        let capacity = 200
+        let price = 500
+        let name = "탄산음료"
+        let current =  Date()
+        
+        let beverage = Soda(
             brand: brand,
             capacity: capacity,
             price: price,
