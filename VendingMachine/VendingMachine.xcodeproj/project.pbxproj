@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0E3F1D972302820500FC08DC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D962302820500FC08DC /* Beverage.swift */; };
 		0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9A2302824900FC08DC /* Extensions.swift */; };
+		0E3F1D9E2302832A00FC08DC /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9D2302832A00FC08DC /* Milk.swift */; };
+		0E3F1DA62302835700FC08DC /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1DA52302835700FC08DC /* BeverageTests.swift */; };
+		0E3F1DAB2302836800FC08DC /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9D2302832A00FC08DC /* Milk.swift */; };
+		0E3F1DAC2302836A00FC08DC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D962302820500FC08DC /* Beverage.swift */; };
+		0E3F1DAD2302836C00FC08DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9A2302824900FC08DC /* Extensions.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,11 +32,22 @@
 /* Begin PBXFileReference section */
 		0E3F1D962302820500FC08DC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		0E3F1D9A2302824900FC08DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0E3F1D9D2302832A00FC08DC /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		0E3F1DA32302835700FC08DC /* BeverageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeverageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E3F1DA52302835700FC08DC /* BeverageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTests.swift; sourceTree = "<group>"; };
+		0E3F1DA72302835700FC08DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0E3F1DA02302835700FC08DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9061F8D1F95009E05F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,6 +61,7 @@
 		0E3F1D95230281F700FC08DC /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				0E3F1D9C230282DF00FC08DC /* Milk */,
 				0E3F1D962302820500FC08DC /* Beverage.swift */,
 			);
 			path = Class;
@@ -58,10 +75,28 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		0E3F1D9C230282DF00FC08DC /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				0E3F1D9D2302832A00FC08DC /* Milk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
+		0E3F1DA42302835700FC08DC /* BeverageTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E3F1DA52302835700FC08DC /* BeverageTests.swift */,
+				0E3F1DA72302835700FC08DC /* Info.plist */,
+			);
+			path = BeverageTests;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				0E3F1DA42302835700FC08DC /* BeverageTests */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
+				0E3F1DA32302835700FC08DC /* BeverageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +123,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0E3F1DA22302835700FC08DC /* BeverageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E3F1DA82302835700FC08DC /* Build configuration list for PBXNativeTarget "BeverageTests" */;
+			buildPhases = (
+				0E3F1D9F2302835700FC08DC /* Sources */,
+				0E3F1DA02302835700FC08DC /* Frameworks */,
+				0E3F1DA12302835700FC08DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeverageTests;
+			productName = BeverageTests;
+			productReference = 0E3F1DA32302835700FC08DC /* BeverageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		839DA9081F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
@@ -110,10 +163,14 @@
 		839DA9011F8D1F95009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
+					0E3F1DA22302835700FC08DC = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -133,17 +190,40 @@
 			projectRoot = "";
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
+				0E3F1DA22302835700FC08DC /* BeverageTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		0E3F1DA12302835700FC08DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		0E3F1D9F2302835700FC08DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E3F1DAC2302836A00FC08DC /* Beverage.swift in Sources */,
+				0E3F1DAB2302836800FC08DC /* Milk.swift in Sources */,
+				0E3F1DA62302835700FC08DC /* BeverageTests.swift in Sources */,
+				0E3F1DAD2302836C00FC08DC /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0E3F1D972302820500FC08DC /* Beverage.swift in Sources */,
 				0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */,
+				0E3F1D9E2302832A00FC08DC /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +231,47 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		0E3F1DA92302835700FC08DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				INFOPLIST_FILE = BeverageTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = developer.OOwl.BeverageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0E3F1DAA2302835700FC08DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				INFOPLIST_FILE = BeverageTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = developer.OOwl.BeverageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		839DA90E1F8D1F95009E05F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -278,6 +399,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0E3F1DA82302835700FC08DC /* Build configuration list for PBXNativeTarget "BeverageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E3F1DA92302835700FC08DC /* Debug */,
+				0E3F1DAA2302835700FC08DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		839DA9041F8D1F95009E05F3 /* Build configuration list for PBXProject "VendingMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
