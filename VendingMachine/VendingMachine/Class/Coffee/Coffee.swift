@@ -24,7 +24,6 @@ class Coffee: Beverage {
          price: Int = 0,
          name: String = "커피",
          productDate: Date = Date(),
-         isSugerFree: Bool = false,
          coffeeBean: CoffeeBean = .arabica) {
         self.coffeeBean = coffeeBean
         
