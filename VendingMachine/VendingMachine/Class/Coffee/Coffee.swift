@@ -14,7 +14,7 @@ class Coffee: Beverage {
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
-         name: String = "음료",
+         name: String = "커피",
          productDate: Date = Date(),
          isSugerFree: Bool = false,
          coffeeBean: CoffeeBean = .arabica) {
