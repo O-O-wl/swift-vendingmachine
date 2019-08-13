@@ -28,11 +28,10 @@ class Coffee: Beverage {
          coffeeBean: CoffeeBean = .arabica) {
         self.coffeeBean = coffeeBean
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate)
     }
 }

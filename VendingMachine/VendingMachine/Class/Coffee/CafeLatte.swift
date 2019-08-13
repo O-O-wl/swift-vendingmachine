@@ -10,25 +10,28 @@ import Foundation
 
 class CafeLatte: Coffee {
     // MARK: - Properties
-    private let milk: Milk
+    private let milkContent: Int
+    
+    var isSoft: Bool {
+        return milkContent > 200
+    }
     
     // MARK: - Methods
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
-         name: String = "커피",
+         name: String = "라떼",
          productDate: Date = Date(),
          isSugerFree: Bool = false,
          coffeeBean: CoffeeBean = .arabica,
-         milk: Milk = Milk()) {
-        self.milk = milk
+         milkContent: Int = 300) {
+        self.milkContent = milkContent
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate,
-            coffeeBean: coffeeBean)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate,
+                   coffeeBean: coffeeBean)
     }
 }

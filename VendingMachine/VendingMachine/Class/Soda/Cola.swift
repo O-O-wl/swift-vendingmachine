@@ -26,12 +26,11 @@ class Cola: Soda {
          cocaberryContent: Int = 20) {
         self.cocaberryContent = cocaberryContent
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate,
-            isSugerFree: isSugerFree)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate,
+                   isSugerFree: isSugerFree)
     }
 }

@@ -9,8 +9,9 @@
 import Foundation
 
 class EnergyDrink: Soda {
+    // MARK: - Properties
     private let caffeineContent: Int
-
+    
     var isHighCaffeine: Bool {
         return 100 < self.caffeineContent
     }
@@ -25,13 +26,12 @@ class EnergyDrink: Soda {
          caffeineContent: Int = 50) {
         self.caffeineContent = caffeineContent
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate,
-            isSugerFree: isSugerFree)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate,
+                   isSugerFree: isSugerFree)
     }
     
 }
