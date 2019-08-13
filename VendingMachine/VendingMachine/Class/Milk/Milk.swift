@@ -9,8 +9,8 @@
 import Foundation
 
 class Milk: Beverage {
-    var hasLowFat: Bool
-    var hasLactase: Bool
+    private let hasLowFat: Bool
+    private let hasLactase: Bool
     
     init(
         brand: String = "제조사",
