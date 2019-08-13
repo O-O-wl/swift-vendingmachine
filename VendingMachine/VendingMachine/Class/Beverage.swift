@@ -9,12 +9,14 @@
 import Foundation
 
 class Beverage {
+    // MARK: - Properties
     private let brand: String
     private let capacity: Int
     private let price: Int
     private let name: String
     private let productDate: Date
     
+     // MARK: - Methods
     init(
         brand:String = "제조사",
         capacity: Int = 0,
