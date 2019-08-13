@@ -8,30 +8,31 @@
 
 import Foundation
 
-class ChocolateMilk: Milk {
+class ChocolateMilk: Milk, Sweetable {
     // MARK: - Properties
     private let chocolateContent: Int
+    var isSweet: Bool {
+        return chocolateContent > 20
+    }
     
     // MARK: - Methods
-    init(
-        brand: String = "제조사",
-        capacity: Int = 0,
-        price: Int = 0,
-        name: String = "초코 우유",
-        productDate: Date = Date(),
-        hasLowFat: Bool = false,
-        hasLactase: Bool = false,
-        chocolateContent: Int = 30) {
+    init(brand: String = "제조사",
+         capacity: Int = 0,
+         price: Int = 0,
+         name: String = "초코우유",
+         productDate: Date = Date(),
+         hasLowFat: Bool = false,
+         hasLactase: Bool = false,
+         chocolateContent: Int = 30) {
         self.chocolateContent = chocolateContent
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate,
-            hasLowFat: hasLowFat,
-            hasLactase: hasLactase)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate,
+                   hasLowFat: hasLowFat,
+                   hasLactase: hasLactase)
     }
     
 }

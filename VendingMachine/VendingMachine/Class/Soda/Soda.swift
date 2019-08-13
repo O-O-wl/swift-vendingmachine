@@ -21,11 +21,10 @@ class Soda: Beverage {
          isSugerFree: Bool = false) {
         self.isSugerFree = isSugerFree
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate)
     }
 }

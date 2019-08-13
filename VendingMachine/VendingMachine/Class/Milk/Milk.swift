@@ -25,11 +25,14 @@ class Milk: Beverage {
         self.hasLowFat = hasLowFat
         self.hasLactase = hasLactase
         
-        super.init(
-            brand: brand,
-            capacity: capacity,
-            price: price,
-            name: name,
-            productDate: productDate)
+        super.init(brand: brand,
+                   capacity: capacity,
+                   price: price,
+                   name: name,
+                   productDate: productDate)
     }
+}
+
+protocol Sweetable {
+    var isSweet: Bool { get }
 }

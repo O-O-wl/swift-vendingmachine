@@ -9,7 +9,11 @@
 import Foundation
 
 class Americano: Coffee {
-    var waterContent: Int
+    private var waterContent: Int
+    
+    var isWatery: Bool {
+        return waterContent > 300
+    }
     
     // MARK: - Methods
         init(brand: String = "제조사",
@@ -22,12 +26,11 @@ class Americano: Coffee {
              waterContent: Int = 300) {
             self.waterContent = waterContent
             
-            super.init(
-                brand: brand,
-                capacity: capacity,
-                price: price,
-                name: name,
-                productDate: productDate,
-                coffeeBean: coffeeBean)
+            super.init(brand: brand,
+                       capacity: capacity,
+                       price: price,
+                       name: name,
+                       productDate: productDate,
+                       coffeeBean: coffeeBean)
         }
 }
