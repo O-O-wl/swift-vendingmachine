@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3F1D972302820500FC08DC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D962302820500FC08DC /* Beverage.swift */; };
+		0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1D9A2302824900FC08DC /* Extensions.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E3F1D962302820500FC08DC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		0E3F1D9A2302824900FC08DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +42,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E3F1D95230281F700FC08DC /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				0E3F1D962302820500FC08DC /* Beverage.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		0E3F1D982302822300FC08DC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0E3F1D9A2302824900FC08DC /* Extensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +77,8 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				0E3F1D982302822300FC08DC /* Util */,
+				0E3F1D95230281F700FC08DC /* Class */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 			);
 			path = VendingMachine;
@@ -120,6 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3F1D972302820500FC08DC /* Beverage.swift in Sources */,
+				0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
