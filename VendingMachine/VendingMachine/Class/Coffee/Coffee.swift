@@ -9,7 +9,6 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let isSugerFree: Bool
     private let coffeeBean: CoffeeBean
     
     init(brand: String = "제조사",
@@ -19,7 +18,6 @@ class Coffee: Beverage {
          productDate: Date = Date(),
          isSugerFree: Bool = false,
          coffeeBean: CoffeeBean = .arabica) {
-        self.isSugerFree = isSugerFree
         self.coffeeBean = coffeeBean
         
         super.init(
