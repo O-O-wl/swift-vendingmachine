@@ -29,3 +29,9 @@ class Beverage {
         self.productDate = productDate
     }
 }
+// MARK: - + CustomStringConvertible
+extension Beverage: CustomStringConvertible {
+    var description: String {
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(productDate.text)"
+    }
+}
