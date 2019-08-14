@@ -17,19 +17,21 @@ class CafeLatte: Coffee {
     }
     
     // MARK: - Methods
-
-    /// CafeLatte 초기화 이니셜라이저
-    /// - Parameter brand: 제조사명
-    /// - Parameter capacity: 용량
-    /// - Parameter price: 가격
-    /// - Parameter name: 상품명
-    /// - Parameter productDate: 제조일자
-    /// - Parameter coffeeBean: 커피원두
-    /// - Parameter milkContent: 우유 함유량 ⚠️ capacity보다 큰 수를 입력하면 capacity로 자동 조정됩니다.
+    
+    /// initialize instance of Americano
+    ///
+    /// - Parameter brand: brand name. default is "제조사".
+    /// - Parameter capacity: product capacity. default is 0.
+    /// - Parameter price: Int to  product price. default is 0.
+    /// - Parameter name: a string product name. default is "카페라떼".
+    /// - Parameter productDate: product date. default is current date.
+    /// - Parameter coffeeBean: a coffeeBeanType indicating what type of CoffeeBean has.
+    /// - Parameter milkContent: a int value how many contain milk
+    /// ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
-         name: String = "라떼",
+         name: String = "카페라떼",
          productDate: Date = Date(),
          coffeeBean: CoffeeBean = .arabica,
          milkContent: Int = 300) {
