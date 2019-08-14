@@ -12,19 +12,21 @@ class ChocolateMilk: Milk, Sweetable {
     // MARK: - Properties
     private let chocolateContent: Int
     var isSweet: Bool {
-        return chocolateContent > 20
+        return chocolateContent > 30
     }
     
     // MARK: - Methods
-    /// ChocolateMilk 초기화 이니셜라이저
-    /// - Parameter brand: 브랜드 명
-    /// - Parameter capacity: 용량
-    /// - Parameter price: 가격
-    /// - Parameter name: 상품명
-    /// - Parameter productDate: 제조일자
-    /// - Parameter hasLowFat: 저지방 여부
-    /// - Parameter hasLactase: 락타아제 포함 여부
-    /// - Parameter chocolateContent: 초콜렛 함유량 ⚠️ capacity보다 큰 수를 입력하면 capacity로 자동 조정됩니다.
+    /// initialize instance of ChocolateMilk
+    ///
+    /// - Parameter brand: brand name. default is "제조사".
+    /// - Parameter capacity: product capacity. default is 0.
+    /// - Parameter price: Int to  product price. default is 0.
+    /// - Parameter name: a string product name. default is "초코우유".
+    /// - Parameter productDate: product date. default is current date.
+    /// - Parameter hasLowFat: a bool indicating whether or not has low fat.  default is false.
+    /// - Parameter hasLactase: a bool indicating whether or not has lactase. default is false.
+    /// - Parameter chocolateContent: a int value how many contain chocolate
+    ///  ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
@@ -34,7 +36,6 @@ class ChocolateMilk: Milk, Sweetable {
          hasLactase: Bool = false,
          chocolateContent: Int = 30) {
         self.chocolateContent = chocolateContent > capacity ? capacity : chocolateContent
-        
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
