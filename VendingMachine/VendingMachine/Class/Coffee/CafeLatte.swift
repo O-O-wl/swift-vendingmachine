@@ -34,6 +34,7 @@ class CafeLatte: Coffee {
          price: Int = 0,
          name: String = "카페라떼",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          coffeeBean: CoffeeBean = .arabica,
          milkContent: Int = stanardMilkContent) {
         self.milkContent = milkContent > capacity ? capacity : milkContent
@@ -43,6 +44,7 @@ class CafeLatte: Coffee {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   temperature: temperature,
                    coffeeBean: coffeeBean)
     }
 }

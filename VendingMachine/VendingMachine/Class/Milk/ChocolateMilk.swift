@@ -33,6 +33,7 @@ class ChocolateMilk: Milk, Sweetable {
          price: Int = 0,
          name: String = "초코우유",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          fatContent: Int = stanardFatContent,
          lactaseContent: Int = stanardLactaseContent,
          chocolateContent: Int = stanardChocolateContent) {
@@ -42,6 +43,7 @@ class ChocolateMilk: Milk, Sweetable {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   temperature: temperature,
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }

@@ -34,6 +34,7 @@ class Cola: Soda {
          price: Int = 0,
          name: String = "콜라",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          isSugerFree: Bool = false,
          cocaberryContent: Int = stanardCocaberryContent) {
         self.cocaberryContent = cocaberryContent > capacity ? capacity : cocaberryContent
@@ -43,6 +44,7 @@ class Cola: Soda {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   temperature: temperature,
                    isSugerFree: isSugerFree)
     }
 }

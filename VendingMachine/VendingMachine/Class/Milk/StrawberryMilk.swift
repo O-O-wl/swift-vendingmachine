@@ -34,6 +34,7 @@ class StrawberryMilk: Milk, Sweetable {
          price: Int = 0,
          name: String = "딸기우유",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          fatContent: Int = stanardFatContent,
          lactaseContent: Int = stanardLactaseContent,
          strawberryContent: Int = stanardStrawberryContent) {
@@ -44,6 +45,7 @@ class StrawberryMilk: Milk, Sweetable {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   temperature: temperature,
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }

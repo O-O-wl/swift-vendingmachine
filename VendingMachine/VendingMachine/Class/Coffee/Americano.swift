@@ -34,6 +34,7 @@ class Americano: Coffee {
          price: Int = 0,
          name: String = "아메리카노",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          coffeeBean: CoffeeBean = .arabica,
          waterContent: Int = stanardWaterContent) {
         self.waterContent = waterContent > capacity ? capacity : waterContent
@@ -43,6 +44,7 @@ class Americano: Coffee {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   temperature: temperature,
                    coffeeBean: coffeeBean)
     }
 }
