@@ -10,10 +10,11 @@ import Foundation
 
 class Cola: Soda {
     // MARK: - Properties
+    static let stanardCocaberryContent = 10
     private let cocaberryContent: Int
     
     var isAddictive: Bool {
-        return cocaberryContent > 10
+        return cocaberryContent > Cola.stanardCocaberryContent
     }
     
     // MARK: - Methods
@@ -34,7 +35,7 @@ class Cola: Soda {
          name: String = "콜라",
          productDate: Date = Date(),
          isSugerFree: Bool = false,
-         cocaberryContent: Int = 20) {
+         cocaberryContent: Int = stanardCocaberryContent) {
         self.cocaberryContent = cocaberryContent > capacity ? capacity : cocaberryContent
         
         super.init(brand: brand,
