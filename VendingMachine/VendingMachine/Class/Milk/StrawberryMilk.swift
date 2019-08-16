@@ -10,9 +10,10 @@ import Foundation
 
 class StrawberryMilk: Milk, Sweetable {
     // MARK: - Properties
+    static let stanardStrawberryContent = 30
     private let strawberryContent: Int
     var isSweet: Bool {
-        return strawberryContent > 30
+        return strawberryContent > StrawberryMilk.stanardStrawberryContent
     }
     
     // MARK: - Methods
@@ -33,9 +34,9 @@ class StrawberryMilk: Milk, Sweetable {
          price: Int = 0,
          name: String = "딸기우유",
          productDate: Date = Date(),
-         hasLowFat: Bool = false,
-         hasLactase: Bool = false,
-         strawberryContent: Int = 30) {
+         fatContent: Int = stanardFatContent,
+         lactaseContent: Int = stanardLactaseContent,
+         strawberryContent: Int = stanardStrawberryContent) {
         self.strawberryContent = strawberryContent > capacity ? capacity : strawberryContent
         
         super.init(brand: brand,
@@ -43,8 +44,8 @@ class StrawberryMilk: Milk, Sweetable {
                    price: price,
                    name: name,
                    productDate: productDate,
-                   hasLowFat: hasLowFat,
-                   hasLactase: hasLactase)
+                   fatContent: fatContent,
+                   lactaseContent: lactaseContent)
     }
     
 }

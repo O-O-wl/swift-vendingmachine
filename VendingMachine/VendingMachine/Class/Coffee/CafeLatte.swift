@@ -10,10 +10,11 @@ import Foundation
 
 class CafeLatte: Coffee {
     // MARK: - Properties
+    static let stanardMilkContent = 200
     private let milkContent: Int
     
     var isSoft: Bool {
-        return milkContent > 200
+        return milkContent > CafeLatte.stanardMilkContent
     }
     
     // MARK: - Methods
@@ -34,7 +35,7 @@ class CafeLatte: Coffee {
          name: String = "카페라떼",
          productDate: Date = Date(),
          coffeeBean: CoffeeBean = .arabica,
-         milkContent: Int = 300) {
+         milkContent: Int = stanardMilkContent) {
         self.milkContent = milkContent > capacity ? capacity : milkContent
         
         super.init(brand: brand,

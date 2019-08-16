@@ -10,8 +10,18 @@ import Foundation
 
 class Milk: Beverage {
     // MARK: - Properties
-    private let hasLowFat: Bool
-    private let hasLactase: Bool
+    static let stanardFatContent = 100
+    static let stanardLactaseContent = 100
+    
+    private let fatContent: Int
+    private let lactaseContent: Int
+    
+    private var isLowFat: Bool {
+        return Milk.stanardFatContent >= fatContent
+    }
+    private var isDisgestible: Bool {
+         return Milk.stanardFatContent <= fatContent
+    }
     
     // MARK: - Methods
     init(
@@ -20,10 +30,10 @@ class Milk: Beverage {
         price: Int = 0,
         name: String = "우유",
         productDate: Date = Date(),
-        hasLowFat: Bool = false,
-        hasLactase: Bool = false ) {
-        self.hasLowFat = hasLowFat
-        self.hasLactase = hasLactase
+        fatContent: Int = stanardFatContent,
+        lactaseContent: Int = stanardLactaseContent ) {
+        self.fatContent = fatContent
+        self.lactaseContent = lactaseContent
         
         super.init(brand: brand,
                    capacity: capacity,

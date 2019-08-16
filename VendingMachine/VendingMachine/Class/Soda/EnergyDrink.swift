@@ -10,10 +10,11 @@ import Foundation
 
 class EnergyDrink: Soda {
     // MARK: - Properties
+    static let stanardCaffeineContent: Int = 100
     private let caffeineContent: Int
     
     var isHighCaffeine: Bool {
-        return 100 < self.caffeineContent
+        return EnergyDrink.stanardCaffeineContent < self.caffeineContent
     }
     
     // MARK: - Methods
@@ -34,7 +35,7 @@ class EnergyDrink: Soda {
          name: String = "에너지 드링크",
          productDate: Date = Date(),
          isSugerFree: Bool = false,
-         caffeineContent: Int = 50) {
+         caffeineContent: Int = stanardCaffeineContent) {
         self.caffeineContent = caffeineContent > capacity ? capacity : caffeineContent
         
         super.init(brand: brand,

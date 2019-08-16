@@ -9,10 +9,12 @@
 import Foundation
 
 class Americano: Coffee {
+    // MARK: - Properties
+    static let stanardWaterContent = 300
     private var waterContent: Int
     
     var isWatery: Bool {
-        return waterContent > 300
+        return waterContent > Americano.stanardWaterContent
     }
     
     // MARK: - Methods
@@ -33,7 +35,7 @@ class Americano: Coffee {
          name: String = "아메리카노",
          productDate: Date = Date(),
          coffeeBean: CoffeeBean = .arabica,
-         waterContent: Int = 300) {
+         waterContent: Int = stanardWaterContent) {
         self.waterContent = waterContent > capacity ? capacity : waterContent
         
         super.init(brand: brand,
