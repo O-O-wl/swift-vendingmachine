@@ -9,7 +9,7 @@
 import XCTest
 
 class MoneyTests: XCTestCase {
-
+    
     func testMoneyDescription() {
         // Given
         let money = Money(value: 1_000)
@@ -19,5 +19,26 @@ class MoneyTests: XCTestCase {
         //Then
         XCTAssertEqual(result, expected)
     }
-
+    
+    func testAddiction() {
+        //Given
+        var balence = Money(value: 1000)
+        let money = Money(value: 500)
+        let expected = Money(value: 1500)
+        //When
+        balence = balence + money
+        //Then
+        XCTAssertEqual(balence, expected)
+    }
+    
+    func testSubtraction() {
+        //Given
+        var balence = Money(value: 1000)
+        let money = Money(value: 500)
+        let expected = Money(value: 500)
+        //When
+        balence = balence - money
+        //Then
+        XCTAssertEqual(balence, expected)
+    }
 }
