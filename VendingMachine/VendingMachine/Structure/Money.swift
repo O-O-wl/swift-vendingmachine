@@ -41,12 +41,22 @@ extension Money: CustomStringConvertible {
 }
 // MARK: - + Operation overloading
 extension Money: Equatable {
-
+    
     static func + ( lhs: Money, rhs: Money) -> Money {
         return Money(value: lhs.value + rhs.value)
     }
     
     static func - ( lhs: Money, rhs: Money) -> Money {
         return Money(value: lhs.value - rhs.value)
-    }a
+    }
+    
+    static func += (lhs: inout Money, rhs: Money) {
+        lhs.value += rhs.value
+    }
+    
+    static func -= ( lhs: inout Money, rhs: Money) {
+        lhs.value -= rhs.value
+    }
 }
+
+
