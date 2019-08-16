@@ -20,7 +20,7 @@ class Milk: Beverage {
         return Milk.stanardFatContent >= fatContent
     }
     private var isDisgestible: Bool {
-         return Milk.stanardFatContent <= fatContent
+        return Milk.stanardFatContent <= fatContent
     }
     
     // MARK: - Methods
@@ -30,6 +30,7 @@ class Milk: Beverage {
         price: Int = 0,
         name: String = "우유",
         productDate: Date = Date(),
+        temperature: Int = standardTemperature,
         fatContent: Int = stanardFatContent,
         lactaseContent: Int = stanardLactaseContent ) {
         self.fatContent = fatContent
@@ -39,7 +40,8 @@ class Milk: Beverage {
                    capacity: capacity,
                    price: price,
                    name: name,
-                   productDate: productDate)
+                   productDate: productDate,
+                   temperature: temperature,)
     }
 }
 

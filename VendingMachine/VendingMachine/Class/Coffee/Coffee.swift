@@ -17,13 +17,14 @@ class Coffee: Beverage {
     }
     // MARK: - Properties
     private let coffeeBean: CoffeeBean
-   
+    
     // MARK: - Methods
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
          name: String = "커피",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          coffeeBean: CoffeeBean = .arabica) {
         self.coffeeBean = coffeeBean
         
@@ -31,6 +32,7 @@ class Coffee: Beverage {
                    capacity: capacity,
                    price: price,
                    name: name,
-                   productDate: productDate)
+                   productDate: productDate,
+                   temperature: temperature)
     }
 }

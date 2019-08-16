@@ -18,6 +18,7 @@ class Soda: Beverage {
          price: Int = 0,
          name: String = "탄산음료",
          productDate: Date = Date(),
+         temperature: Int = standardTemperature,
          isSugerFree: Bool = false) {
         self.isSugerFree = isSugerFree
         
@@ -25,6 +26,7 @@ class Soda: Beverage {
                    capacity: capacity,
                    price: price,
                    name: name,
-                   productDate: productDate)
+                   productDate: productDate,
+                   temperature: temperature)
     }
 }
