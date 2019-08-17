@@ -76,11 +76,10 @@ class InventoryTests: XCTestCase {
         //When
         let result = inventory.statistics()
         //Then
-        result.forEach {
-            let resultCount = $0.value
-            let expectedCount = expected[$0.key]
-            XCTAssertEqual(resultCount, expectedCount)
-        }
+        XCTAssertEqual(result["딸기우유"], expected["딸기우유"])
+        XCTAssertEqual(result["초코우유"], expected["초코우유"])
+        XCTAssertEqual(result["아메리카노"], expected["아메리카노"])
+        XCTAssertEqual(result["콜라"], expected["콜라"])
+        XCTAssertEqual(result["에너지드링크"], expected["에너지드링크"])
     }
-    
 }
