@@ -20,12 +20,12 @@ class InventoryTests: XCTestCase {
     override func setUp() {
         //Given
         products.append(StrawberryMilk())
-        products.append(self.hotAmericano)
-        products.append(ChocolateMilk())
-        products.append(Cola())
-        products.append(self.expensiveEnergyDrink)
-        products.append(self.dueCola)
         products.append(StrawberryMilk())
+        products.append(ChocolateMilk())
+        products.append(self.hotAmericano)
+        products.append(Cola())
+        products.append(self.dueCola)
+        products.append(self.expensiveEnergyDrink)
         
         inventory = .init(products: products)
     }
@@ -64,6 +64,23 @@ class InventoryTests: XCTestCase {
         XCTAssertEqual(result.count, expected.count)
         XCTAssertTrue(result.first! === expected.first!)
         XCTAssertFalse(result.first! === wrong.first!)
+    }
+    
+    func testStatistics() {
+        //Given
+        let expected = ["딸기우유": 2,
+                        "초코우유": 1,
+                        "아메리카노": 1,
+                        "콜라": 2,
+                        "에너지드링크": 1]
+        //When
+        let result = inventory.statistics()
+        //Then
+        result.forEach {
+            let resultCount = $0.value
+            let expectedCount = expected[$0.key]
+            XCTAssertEqual(resultCount, expectedCount)
+        }
     }
     
 }
