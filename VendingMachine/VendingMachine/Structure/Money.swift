@@ -10,6 +10,10 @@ import Foundation
 
 struct Money {
     enum Unit: CustomStringConvertible {
+        case won
+        case dollar
+        case euro
+        
         var description: String {
             switch self {
             case .won:
@@ -20,14 +24,14 @@ struct Money {
                 return "€"
             }
         }
-        
-        case won
-        case dollar
-        case euro
     }
-    let unit: Unit = .won
-    var value: Int
     
+    private let unit: Unit = .won
+    private var value: Int
+    
+    init(value: Int) {
+        self.value = value
+    }
 }
 // MARK: - + CustomStringConvertible
 extension Money: CustomStringConvertible {
@@ -39,8 +43,23 @@ extension Money: CustomStringConvertible {
     }
     
 }
+// MARK: - + Comparable
+extension Money: Comparable {
+    
+    static func < (lhs: Money, rhs: Money) -> Bool {
+        return lhs.value < rhs.value
+    }
+    
+    static func < (lhs: Money, rhs: Int) -> Bool {
+        return lhs.value < rhs
+    }
+    
+    static func < (lhs: Int, rhs: Money) -> Bool {
+        return lhs < rhs.value
+    }
+}
 // MARK: - + Operation overloading
-extension Money: Equatable {
+extension Money {
     
     static func + ( lhs: Money, rhs: Money) -> Money {
         return Money(value: lhs.value + rhs.value)
@@ -57,6 +76,12 @@ extension Money: Equatable {
     static func -= ( lhs: inout Money, rhs: Money) {
         lhs.value -= rhs.value
     }
+    
+    static func - (lhs: Money, rhs: Int) -> Money {
+        return lhs - Money(value: rhs)
+    }
+    
+    static func - (lhs: Int, rhs: Money) -> Money {
+        return Money(value: lhs) - rhs
+    }
 }
-
-
