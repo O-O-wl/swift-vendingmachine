@@ -22,23 +22,27 @@ class MoneyTests: XCTestCase {
     
     func testAddiction() {
         //Given
-        var balence = Money(value: 1000)
-        let money = Money(value: 500)
+        var money1 = Money(value: 1000)
+        let money2 = Money(value: 500)
         let expected = Money(value: 1500)
         //When
-        balence = balence + money
+        let balence = money1 + money2
+        money1 += money2
         //Then
         XCTAssertEqual(balence, expected)
+        XCTAssertEqual(money1, expected)
     }
     
     func testSubtraction() {
         //Given
-        var balence = Money(value: 1000)
-        let money = Money(value: 500)
+        var money1 = Money(value: 1000)
+        let money2 = Money(value: 500)
         let expected = Money(value: 500)
         //When
-        balence = balence - money
+        let balence = money1 - money2
+        money1 -= money2
         //Then
         XCTAssertEqual(balence, expected)
+        XCTAssertEqual(money1, expected)
     }
 }
