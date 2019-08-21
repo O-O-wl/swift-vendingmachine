@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct PurchaseStrategy: StateHandleable {
+    let productToPurchase: Product
+    
+    func handle(_ before: State) -> State {
+        let balence = before.balence - productToPurchase.productPrice
+        return (balence, before.inventory)
+    }
+}

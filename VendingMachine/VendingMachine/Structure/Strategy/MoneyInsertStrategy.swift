@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct MoneyInsertStrategy: StateHandleable {
+    let moneyToAdd: Money
+    
+    func handle(_ before: State) -> State {
+        let balence  = before.balence + moneyToAdd
+        return (balence, before.inventory)
+    }
+}

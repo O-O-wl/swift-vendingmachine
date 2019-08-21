@@ -8,7 +8,7 @@
 
 import Foundation
 
+
 protocol StateHandleable {
-    typealias State = (Money, Inventory)
-    func handle(_ state: State) -> State
+    func handle(_ before: State) -> State
 }
