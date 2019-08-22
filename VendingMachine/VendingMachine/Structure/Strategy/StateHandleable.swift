@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol StateHandleable {
-    func handle(_ before: State) -> State
+    func handle(_ before: State) -> Result<State, Error>
 }
