@@ -11,6 +11,8 @@ import Foundation
 class CafeLatte: Coffee {
     // MARK: - Properties
     static let stanardMilkContent = 200
+    static let recommendedConsumerPrice = 3000
+    
     private let milkContent: Int
     
     var isSoft: Bool {
@@ -31,7 +33,7 @@ class CafeLatte: Coffee {
     /// ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = 0,
+         price: Int = recommendedConsumerPrice,
          name: String = "카페라떼",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,

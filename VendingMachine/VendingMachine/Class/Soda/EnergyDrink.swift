@@ -11,6 +11,8 @@ import Foundation
 class EnergyDrink: Soda {
     // MARK: - Properties
     static let stanardCaffeineContent: Int = 100
+    static let recommendedConsumerPrice = 1500
+    
     private let caffeineContent: Int
     
     var isHighCaffeine: Bool {
@@ -31,7 +33,7 @@ class EnergyDrink: Soda {
     /// ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = 0,
+         price: Int = recommendedConsumerPrice,
          name: String = "에너지드링크",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,

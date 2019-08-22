@@ -8,11 +8,16 @@
 
 import Foundation
 
-protocol Product: class {
+protocol Product: CustomStringConvertible {
     var productName: String { get }
     var productPrice: Int { get }
     var isHot: Bool { get }
     var isDue: Bool { get }
+}
+extension Product {
+    var description: String {
+        return "\(productName) \(productPrice)"
+    }
 }
 
 class Beverage {
