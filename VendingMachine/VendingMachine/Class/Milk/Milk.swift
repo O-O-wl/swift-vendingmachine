@@ -41,7 +41,7 @@ class Milk: Beverage {
                    price: price,
                    name: name,
                    productDate: productDate,
-                   temperature: temperature,)
+                   temperature: temperature)
     }
 }
 
