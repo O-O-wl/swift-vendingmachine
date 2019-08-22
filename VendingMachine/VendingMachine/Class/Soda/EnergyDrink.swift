@@ -32,7 +32,7 @@ class EnergyDrink: Soda {
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
-         name: String = "에너지 드링크",
+         name: String = "에너지드링크",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,
          isSugerFree: Bool = false,
