@@ -9,10 +9,12 @@
 import Foundation
 
 struct MoneyInsertStrategy: StateHandleable {
-    let moneyToAdd: Money
+
+    private let moneyToAdd: Money
     
-    func handle(_ before: State) -> State {
+    func handle(_ before: State) -> Result<State, Error> {
         let balence  = before.balence + moneyToAdd
-        return (balence, before.inventory)
+        return .success((balence, before.inventory))
     }
+    
 }
