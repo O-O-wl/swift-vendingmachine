@@ -11,6 +11,8 @@ import Foundation
 class Americano: Coffee {
     // MARK: - Properties
     static let stanardWaterContent = 300
+    static let recommendedConsumerPrice = 2500
+    
     private var waterContent: Int
     
     var isWatery: Bool {
@@ -30,8 +32,8 @@ class Americano: Coffee {
     /// - Parameter waterContent: a int value how many contain water
     /// ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
-         capacity: Int = 0,
-         price: Int = 0,
+         capacity: Int = 500,
+         price: Int = recommendedConsumerPrice,
          name: String = "아메리카노",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,

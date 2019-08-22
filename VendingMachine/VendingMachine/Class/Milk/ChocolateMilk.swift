@@ -11,6 +11,8 @@ import Foundation
 class ChocolateMilk: Milk, Sweetable {
     // MARK: - Properties
     static let stanardChocolateContent = 30
+    static let recommendedConsumerPrice = 1300
+    
     private let chocolateContent: Int
     var isSweet: Bool {
         return chocolateContent > ChocolateMilk.stanardChocolateContent
@@ -30,7 +32,7 @@ class ChocolateMilk: Milk, Sweetable {
     ///  ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = 0,
+         price: Int = recommendedConsumerPrice,
          name: String = "초코우유",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,

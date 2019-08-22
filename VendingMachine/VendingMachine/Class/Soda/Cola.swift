@@ -11,6 +11,8 @@ import Foundation
 class Cola: Soda {
     // MARK: - Properties
     static let stanardCocaberryContent = 10
+    static let recommendedConsumerPrice = 1800
+    
     private let cocaberryContent: Int
     
     var isAddictive: Bool {
@@ -31,7 +33,7 @@ class Cola: Soda {
     ///⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = 0,
+         price: Int = recommendedConsumerPrice,
          name: String = "콜라",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,
