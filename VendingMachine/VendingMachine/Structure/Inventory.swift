@@ -9,25 +9,30 @@
 import Foundation
 
 struct Inventory {
-    private var stocks: [Product]
+    private var stocks: [Product] {
+        didSet {
+            statistic = stocks
+                .map { $0.productDescription }
+                .dictionary
+                .map { (menu: $0.key, count: $0.value) }
+        }
+    }
+    
+    var statistic: [(menu: String, count: Int)]
     
     init(products: [Product]) {
         self.stocks = products
-    }
-    
-    func statistics() -> [String: Int] {
-        var statistic = [String: Int]()
-        stocks.forEach {
-            statistic[$0.productName] = (statistic[$0.productName] ?? 0) + 1
-        }
-        return statistic
+        self.statistic = stocks
+            .map { $0.productDescription }
+            .dictionary
+            .map { (menu: $0.key, count: $0.value) }
     }
     
     mutating func addStock(_ product: Product) {
         stocks.append(product)
     }
     
-    func filter(option: Option) -> [Product] {
+    func filter(_ option: Option) -> [Product] {
         return stocks.filter { option.filter($0) }
     }
     
