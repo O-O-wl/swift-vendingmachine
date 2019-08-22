@@ -9,24 +9,39 @@
 import Foundation
 
 struct PurchaseStrategy: StateHandleable {
-    private let productToPurchase: Product
+    
+    private let productToPurchaseIndex: Int
+    
+    init(productToPurchaseIndex: Int) {
+        self.productToPurchaseIndex = productToPurchaseIndex
+    }
     
     func handle(_ before: State) -> Result<State, Error> {
         var inventory = before.inventory
         guard
-            productToPurchase.productPrice < before.balence
-            else { return .failure(PurchaseError.lowBalence) }
-        guard
-            let product = inventory.takeOut(productToPurchase)
+            let productToPurchase = inventory.search(at: productToPurchaseIndex)
             else { return .failure(PurchaseError.outOfStock) }
+        guard
+            productToPurchase.productPrice < before.balence,
+            let product = inventory.takeOut(productToPurchase)
+            else { return .failure(PurchaseError.lowBalance) }
         
         let balence = before.balence - product.productPrice
         return .success((balence, inventory))
-        
     }
     
-    enum PurchaseError: Error {
-        case lowBalence
+    // MARK: - PurchaseError
+    enum PurchaseError: LocalizedError {
+        case lowBalance
         case outOfStock
+        
+        var errorDescription: String? {
+            switch self {
+            case .lowBalance:
+                return "잔액이 부족합니다. ❌💰"
+            case .outOfStock:
+                return "재고가 부족합니다. ❌🥤"
+            }
+        }
     }
 }
