@@ -9,10 +9,24 @@
 import Foundation
 
 struct PurchaseStrategy: StateHandleable {
-    let productToPurchase: Product
+    private let productToPurchase: Product
     
-    func handle(_ before: State) -> State {
-        let balence = before.balence - productToPurchase.productPrice
-        return (balence, before.inventory)
+    func handle(_ before: State) -> Result<State, Error> {
+        var inventory = before.inventory
+        guard
+            productToPurchase.productPrice < before.balence
+            else { return .failure(PurchaseError.lowBalence) }
+        guard
+            let product = inventory.takeOut(productToPurchase)
+            else { return .failure(PurchaseError.outOfStock) }
+        
+        let balence = before.balence - product.productPrice
+        return .success((balence, inventory))
+        
+    }
+    
+    enum PurchaseError: Error {
+        case lowBalence
+        case outOfStock
     }
 }
