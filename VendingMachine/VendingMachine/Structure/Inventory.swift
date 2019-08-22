@@ -17,7 +17,6 @@ struct Inventory {
                 .map { (menu: $0.key, count: $0.value) }
         }
     }
-    
     var statistic: [(menu: String, count: Int)]
     
     init(products: [Product]) {
@@ -30,6 +29,13 @@ struct Inventory {
     
     mutating func addStock(_ product: Product) {
         stocks.append(product)
+    }
+    
+    func search(at index: Int) -> Product? {
+        guard index < statistic.count else { return nil }
+        let productDescription = statistic[index].menu
+        var product = stocks.drop(while: { $0.productDescription == productDescription })
+        return product.popLast()
     }
     
     func filter(_ option: Option) -> [Product] {
