@@ -36,6 +36,7 @@ class CafeLatte: Coffee {
          price: Int = recommendedConsumerPrice,
          name: String = "카페라떼",
          productDate: Date = Date(),
+         storeDuration: Int = 7,
          temperature: Int = standardTemperature,
          coffeeBean: CoffeeBean = .arabica,
          milkContent: Int = stanardMilkContent) {
@@ -46,6 +47,7 @@ class CafeLatte: Coffee {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   storeDuration: storeDuration,
                    temperature: temperature,
                    coffeeBean: coffeeBean)
     }

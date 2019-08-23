@@ -37,6 +37,7 @@ class EnergyDrink: Soda {
          name: String = "에너지드링크",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,
+         storeDuration: Int = 30,
          isSugerFree: Bool = false,
          caffeineContent: Int = stanardCaffeineContent) {
         self.caffeineContent = caffeineContent > capacity ? capacity : caffeineContent
@@ -46,6 +47,7 @@ class EnergyDrink: Soda {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   storeDuration: storeDuration,
                    temperature: temperature,
                    isSugerFree: isSugerFree)
     }
