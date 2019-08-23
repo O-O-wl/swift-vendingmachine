@@ -30,6 +30,7 @@ class Milk: Beverage {
         price: Int = 0,
         name: String = "우유",
         productDate: Date = Date(),
+        storeDuration: Int = 7,
         temperature: Int = standardTemperature,
         fatContent: Int = stanardFatContent,
         lactaseContent: Int = stanardLactaseContent ) {
@@ -41,6 +42,7 @@ class Milk: Beverage {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   storeDuration: storeDuration,
                    temperature: temperature)
     }
 }

@@ -36,6 +36,7 @@ class Cola: Soda {
          price: Int = recommendedConsumerPrice,
          name: String = "콜라",
          productDate: Date = Date(),
+         storeDuration: Int = 30,
          temperature: Int = standardTemperature,
          isSugerFree: Bool = false,
          cocaberryContent: Int = stanardCocaberryContent) {
@@ -46,6 +47,7 @@ class Cola: Soda {
                    price: price,
                    name: name,
                    productDate: productDate,
+                   storeDuration: storeDuration,
                    temperature: temperature,
                    isSugerFree: isSugerFree)
     }

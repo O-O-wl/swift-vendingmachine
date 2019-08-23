@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol Product: CustomStringConvertible {
+protocol Product: class {
     var productName: String { get }
-    var productPrice: Int { get }
+    var productPrice: Money { get }
     var isHot: Bool { get }
     var isDue: Bool { get }
 }
 extension Product {
-    var description: String {
+    var productDescription: String {
         return "\(productName) \(productPrice)"
     }
 }
@@ -23,16 +23,17 @@ extension Product {
 class Beverage {
     // MARK: - Properties
     static let standardTemperature = 20
-    static let storeDuration: TimeInterval = 7
     
     private let brand: String
     private let capacity: Int
     private let price: Int
     private let name: String
     private let productDate: Date
-    private var exeirationDate: Date {
-        return productDate + Beverage.storeDuration
+    private let storeDuration: TimeInterval
+    private var expirationDate: Date {
+        return productDate + storeDuration
     }
+    
     private let temperature: Int
     
     // MARK: - Methods
@@ -41,12 +42,14 @@ class Beverage {
          price: Int = 0,
          name: String = "음료",
          productDate: Date = Date(),
+         storeDuration: Int = 5,
          temperature: Int = standardTemperature) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.productDate = productDate
+        self.storeDuration = storeDuration.dayDuration
         self.temperature = temperature
     }
 }
@@ -62,8 +65,8 @@ extension Beverage: Product {
         return self.name
     }
     
-    var productPrice: Int {
-        return self.price
+    var productPrice: Money {
+        return Money(value: self.price)
     }
     
     var isHot: Bool {
@@ -72,6 +75,6 @@ extension Beverage: Product {
     
     var isDue: Bool {
         let nowDate = Date()
-        return exeirationDate < nowDate
+        return expirationDate < nowDate
     }
 }
