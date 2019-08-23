@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+typealias Input = (String, String)
+
+extension Input {
+    init?(_ string: String) {
+        return s
+    }
+}
