@@ -36,7 +36,7 @@ class StrategyTests: XCTestCase {
     
     func testMoneyInsert() {
         //Given
-        strategy = MoneyInsertStrategy(moneyToAdd: Money(value: 5000))
+        strategy = MoneyInsertStrategy(moneyToAdd: Money(value: 5000), completion: nil)
         
         //When
         let result = strategy?.handle(state)

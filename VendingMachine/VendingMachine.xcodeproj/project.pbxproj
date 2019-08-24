@@ -41,6 +41,9 @@
 		0E3F1DB92302A31F00FC08DC /* CafeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */; };
 		0E3F1DBA2302A34100FC08DC /* CafeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */; };
 		0E40C8C923112518007576F0 /* Errorhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C8C823112518007576F0 /* Errorhandler.swift */; };
+		0E40C8CB2311293F007576F0 /* Handleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C8CA2311293F007576F0 /* Handleable.swift */; };
+		0E40C8CC23112972007576F0 /* Handleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C8CA2311293F007576F0 /* Handleable.swift */; };
+		0E40C8CD23112A27007576F0 /* Errorhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C8C823112518007576F0 /* Errorhandler.swift */; };
 		0E5981FD230772F300C09957 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Inventory.swift */; };
 		0E5981FF2307FDE100C09957 /* InventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FE2307FDE100C09957 /* InventoryTests.swift */; };
 		0E5982002307FDE400C09957 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Inventory.swift */; };
@@ -97,6 +100,7 @@
 		0E3F1DB32302906800FC08DC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeLatte.swift; sourceTree = "<group>"; };
 		0E40C8C823112518007576F0 /* Errorhandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorhandler.swift; sourceTree = "<group>"; };
+		0E40C8CA2311293F007576F0 /* Handleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handleable.swift; sourceTree = "<group>"; };
 		0E5981FC230772F300C09957 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		0E5981FE2307FDE100C09957 /* InventoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTests.swift; sourceTree = "<group>"; };
 		0E5EC98223069470008C7C95 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				0E5EC98A2306A0C4008C7C95 /* Money.swift */,
 				0E5981FC230772F300C09957 /* Inventory.swift */,
 				0E40C8C823112518007576F0 /* Errorhandler.swift */,
+				0E40C8CA2311293F007576F0 /* Handleable.swift */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				0E9B7B14230FA268008727B3 /* Request.swift in Sources */,
 				0E3AB992230D938000C662FE /* PurchaseStrategy.swift in Sources */,
 				0E3F1DBA2302A34100FC08DC /* CafeLatte.swift in Sources */,
+				0E40C8CC23112972007576F0 /* Handleable.swift in Sources */,
 				0E3EF1742303466500B27341 /* StrawberryMilk.swift in Sources */,
 				0E5982002307FDE400C09957 /* Inventory.swift in Sources */,
 				0E3F1DB12302903800FC08DC /* Soda.swift in Sources */,
@@ -443,6 +449,7 @@
 				0E3EF1712303465400B27341 /* Americano.swift in Sources */,
 				0E3AB994230D949100C662FE /* VendingMachine.swift in Sources */,
 				0E9B7B13230F639D008727B3 /* StrategyFactory.swift in Sources */,
+				0E40C8CD23112A27007576F0 /* Errorhandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +468,7 @@
 				0E3AB98A230D584200C662FE /* StateHandleable.swift in Sources */,
 				0E3EF1622303326B00B27341 /* EnergyDrink.swift in Sources */,
 				0E3AB98E230D6D4D00C662FE /* PurchaseStrategy.swift in Sources */,
+				0E40C8CB2311293F007576F0 /* Handleable.swift in Sources */,
 				0E3F1DB92302A31F00FC08DC /* CafeLatte.swift in Sources */,
 				0E3F1D9E2302832A00FC08DC /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,

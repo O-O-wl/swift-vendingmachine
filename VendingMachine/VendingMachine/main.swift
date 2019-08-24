@@ -18,8 +18,8 @@ var vendingMachine = VendingMachine(
     inventory: inventory)
 
 while vendingMachine.isOnSale {
-    vendingMachine.handleBalence(OutputView.showBalance)
-    vendingMachine.handleStatistic(OutputView.showStatistic)
+    vendingMachine.handleMoney(OutputView.showBalance)
+    vendingMachine.handleTupleList(OutputView.showStatistic)
     let inputString = InputView.fetchInput()
     do {
         let request = try Request.init(input: inputString)
