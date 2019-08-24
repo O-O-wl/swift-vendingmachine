@@ -8,6 +8,10 @@
 
 import Foundation
 
+func print<T: Beverage>(beverage: T) {
+    print("\(type(of: beverage)) - \(beverage.description)")
+}
+// MARK: - Date Extension
 extension Date {
     var text: String {
         let dateFormmater = DateFormatter()
@@ -15,7 +19,24 @@ extension Date {
         return dateFormmater.string(from: self)
     }
 }
-
-func print<T: Beverage>(beverage: T) {
-    print("\(type(of: beverage)) - \(beverage.description)")
+// MARK: - Int Extesion
+extension Int {
+    var dayDuration: TimeInterval {
+        let secOfDay = 86400
+        return TimeInterval(self * secOfDay)
+    }
+}
+// MARK: - Array Extension
+extension Array where Element == String {
+    var dictionary: [String: Int] {
+        var statistic = [String: Int]()
+        self.forEach { statistic[$0] = (statistic[$0] ?? 0) + 1 }
+        return statistic
+    }
+}
+// MARK: - Dictionary Extension
+extension Dictionary where Key == String, Value == Int {
+    var list: [(String, Int)] {
+        return self.sorted(by: <)
+    }
 }
