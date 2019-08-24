@@ -35,7 +35,7 @@ class InventoryTests: XCTestCase {
         let wrong = [dueCola]
         let expected = [hotAmericano]
         //When
-        let result = inventory.filter(option: .hot)
+        let result = inventory.filter(by: .hot)
         //Then
         XCTAssertEqual(result.count, expected.count)
         XCTAssertTrue(result.first! === expected.first!)
@@ -47,7 +47,7 @@ class InventoryTests: XCTestCase {
         let wrong = [hotAmericano]
         let expected = [dueCola]
         //When
-        let result = inventory.filter(option: .due)
+        let result = inventory.filter(by: .due)
         //Then
         XCTAssertEqual(result.count, expected.count)
         XCTAssertTrue(result.first! === expected.first!)
@@ -59,7 +59,7 @@ class InventoryTests: XCTestCase {
         let wrong = [expensiveEnergyDrink]
         let expected: [Product] = products.filter { $0 !== expensiveEnergyDrink }
         //When
-        let result = inventory.filter(option: .available(balence: givenMoney))
+        let result = inventory.filter(by: .available(balence: givenMoney))
         //Then
         XCTAssertEqual(result.count, expected.count)
         XCTAssertTrue(result.first! === expected.first!)
@@ -68,18 +68,11 @@ class InventoryTests: XCTestCase {
     
     func testStatistics() {
         //Given
-        let expected = ["딸기우유": 2,
-                        "초코우유": 1,
-                        "아메리카노": 1,
-                        "콜라": 2,
-                        "에너지드링크": 1]
+        
         //When
-        let result = inventory.statistics()
+        let result = inventory.statistic
         //Then
-        XCTAssertEqual(result["딸기우유"], expected["딸기우유"])
-        XCTAssertEqual(result["초코우유"], expected["초코우유"])
-        XCTAssertEqual(result["아메리카노"], expected["아메리카노"])
-        XCTAssertEqual(result["콜라"], expected["콜라"])
-        XCTAssertEqual(result["에너지드링크"], expected["에너지드링크"])
+        XCTAssertEqual(result.count, 5)
+        
     }
 }
