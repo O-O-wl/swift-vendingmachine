@@ -9,16 +9,16 @@
 import Foundation
 
 struct StrategyFactory {
-    static func create(input: Input) -> StateHandleable? {
-        switch input {
-        case ("1", let value):
-            let money = Money(value: Int(value)!)
-            return MoneyInsertStrategy(moneyToAdd: money)
-        case ("2", let value):
-            let index = Int(value)!
-            return PurchaseStrategy(productToPurchaseIndex: index)
-        default:
-            return nil
+    static func create(_ request: Request) -> StateHandleable {
+        switch request {
+        case .insert(amount: let value):
+            let money = Money(value: value)
+            return MoneyInsertStrategy(moneyToAdd: money,
+                                       completion: OutputView.showInsertMoney)
+        case .purchase(index: let value):
+            let index = value - 1 
+            return PurchaseStrategy(productToPurchaseIndex: index,
+                                    completion: OutputView.showPurchase)
         }
     }
 }

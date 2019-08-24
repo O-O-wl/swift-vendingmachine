@@ -9,22 +9,17 @@
 import Foundation
 
 struct Inventory {
-    private var stocks: [Product] {
-        didSet {
-            statistic = stocks
-                .map { $0.productDescription }
-                .dictionary
-                .map { (menu: $0.key, count: $0.value) }
-        }
+    private var stocks: [Product]
+    
+    var statistic: [(menu: String, count: Int)] {
+        return stocks
+            .map { $0.productDescription }
+            .dictionary
+            .list
     }
-    var statistic: [(menu: String, count: Int)]
     
     init(products: [Product]) {
         self.stocks = products
-        self.statistic = stocks
-            .map { $0.productDescription }
-            .dictionary
-            .map { (menu: $0.key, count: $0.value) }
     }
     
     mutating func addStock(_ product: Product) {
@@ -34,12 +29,12 @@ struct Inventory {
     func search(at index: Int) -> Product? {
         guard index < statistic.count else { return nil }
         let productDescription = statistic[index].menu
-        var product = stocks.drop(while: { $0.productDescription == productDescription })
+        var product = stocks.filter { $0.productDescription == productDescription }
         return product.popLast()
     }
     
-    func filter(_ option: Option) -> [Product] {
-        return stocks.filter { option.filter($0) }
+    func filter(by option: Option) -> [Product] {
+        return stocks.filter { option.condition($0) }
     }
     
     mutating func takeOut(_ product: Product) -> Product? {
@@ -57,7 +52,7 @@ extension Inventory {
         case hot
         case due
         
-        var filter: (Product) -> Bool {
+        var condition: (Product) -> Bool {
             switch self {
             case .all:
                 return { _ in true }
