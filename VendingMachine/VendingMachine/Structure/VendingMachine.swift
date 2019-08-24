@@ -10,11 +10,6 @@ import Foundation
 
 typealias State = (balence: Money, inventory: Inventory)
 
-protocol StatePrintable {
-    func handleBalence(_ handler: (Money) -> Void)
-    func handleStatistic(_ handler: ([(String, Int)]) -> Void)
-}
-
 struct VendingMachine {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
@@ -37,7 +32,13 @@ struct VendingMachine {
         let state = (balence: balance, inventory: inventory)
         guard let result = strategy?.handle(state) else { return }
         try resultHandle(result)
-        
+    }
+    
+    func handleStrategy(_ handler: (StateHandleable) -> Void) {
+        guard
+            let strategy = strategy
+            else { return }
+        handler(strategy)
     }
     
     mutating func resultHandle(_ result: Result<State, Error>) throws {
@@ -52,23 +53,20 @@ struct VendingMachine {
     }
     
 }
-// MARK: - + StatePrintable
-extension VendingMachine: StatePrintable {
+// MARK: - + MoneyHandleable
+extension VendingMachine: MoneyHandleable {
     
-    func handleBalence(_ handler: (Money) -> Void) {
+    func handleMoney(_ handler: (Money) -> Void) {
         handler(balance)
     }
     
-    func handleStatistic(_ handler: ([(String, Int)]) -> Void) {
-        handler(inventory.statistic)
-    }
-    
-    func handleStrategy(_ handler: (StateHandleable) -> Void) {
-        guard
-            let strategy = strategy
-            else { return }
-        handler(strategy)
-    }
-    
 }
-
+// MARK: - + MoneyHandleable
+extension VendingMachine: TupleListHandleable {
+    typealias Key = String
+    typealias Value = Int
+    
+    func handleTupleList(_ handler: ([(String, Int)]) -> Void) {
+          handler(inventory.statistic)
+    }
+}

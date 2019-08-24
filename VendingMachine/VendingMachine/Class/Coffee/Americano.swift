@@ -36,7 +36,7 @@ class Americano: Coffee {
          price: Int = recommendedConsumerPrice,
          name: String = "아메리카노",
          productDate: Date = Date(),
-         storeDuration:Int = 15,
+         storeDuration: Int = 15,
          temperature: Int = standardTemperature,
          coffeeBean: CoffeeBean = .arabica,
          waterContent: Int = stanardWaterContent) {

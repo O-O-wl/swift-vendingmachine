@@ -11,6 +11,10 @@ import Foundation
 struct ErrorHandler {
     private let error: Error
     
+    init(error: Error) {
+        self.error = error
+    }
+    
     func handle(logic: (Error) -> Void) {
         logic(error)
     }
