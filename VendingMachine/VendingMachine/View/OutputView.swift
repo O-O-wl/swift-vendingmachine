@@ -23,12 +23,19 @@ struct OutputView {
         print(sentence)
     }
     
-    static let showPurchase: (String, Money) -> Void = {
-        print("\n\($0)를 구매하셨습니다. \($1)을 차감합니다.💸\n")
-    }
-    
     static let showInsertMoney: (Money) -> Void = {
-        print("\($0)를 추가하셨습니다. ⬅️ 💴💶💷")
+        print("\($0)을 추가하셨습니다. ⬅️ 💴💶💷")
     }
     
+    static let showPurchase: (String, Money) -> Void = {
+        print("\($0)을 성공적으로 구매했습니다. \($1)을 차감합니다.💸\n")
+    }
+    
+    static let showError: (Error) -> Void = {
+        print("""
+            ===================⚠️ Error ⚠️===================
+                            \($0.localizedDescription)
+            =================================================
+            """)
+    }
 }
