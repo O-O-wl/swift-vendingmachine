@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct ErrorHandler {
+    private let error: Error
+    
+    func handle(logic: (Error) -> Void) {
+        logic(error)
+    }
+}

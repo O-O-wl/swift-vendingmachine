@@ -9,5 +9,6 @@
 import Foundation
 
 protocol StateHandleable {
-    func handle(_ before: State) -> Result<State, Error>
+    mutating func handle(_ before: State) -> Result<State, Error>
+    func complete()
 }

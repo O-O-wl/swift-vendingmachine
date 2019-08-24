@@ -9,25 +9,34 @@
 import Foundation
 
 struct PurchaseStrategy: StateHandleable {
-    
     private let productToPurchaseIndex: Int
+    private var completion: (String, Money) -> Void
+    private var product: Product?
     
-    init(productToPurchaseIndex: Int) {
+    init(productToPurchaseIndex: Int,
+         completion: @escaping (String, Money) -> Void) {
         self.productToPurchaseIndex = productToPurchaseIndex
+        self.completion = completion
     }
     
-    func handle(_ before: State) -> Result<State, Error> {
+    mutating func handle(_ before: State) -> Result<State, Error> {
         var inventory = before.inventory
         guard
             let productToPurchase = inventory.search(at: productToPurchaseIndex)
             else { return .failure(PurchaseError.outOfStock) }
         guard
-            productToPurchase.productPrice < before.balence,
-            let product = inventory.takeOut(productToPurchase)
+            before.balence >= productToPurchase.productPrice,
+            let buyingProduct = inventory.takeOut(productToPurchase)
             else { return .failure(PurchaseError.lowBalance) }
+        self.product = buyingProduct
+        let balence = before.balence - buyingProduct.productPrice
         
-        let balence = before.balence - product.productPrice
         return .success((balence, inventory))
+    }
+    
+    func complete() {
+        guard let product = self.product else { return }
+        completion(product.productName, product.productPrice)
     }
     
     // MARK: - PurchaseError

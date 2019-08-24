@@ -16,7 +16,9 @@ protocol StatePrintable {
 }
 
 struct VendingMachine {
-    
+    var isOnSale: Bool {
+        return !inventory.filter(by: .all).isEmpty
+    }
     private var balance: Money
     private var inventory: Inventory
     private var strategy: StateHandleable?
@@ -27,15 +29,15 @@ struct VendingMachine {
         self.inventory = inventory
     }
     
-    mutating func setStrategy(_ strategy: StateHandleable) {
+    mutating func setStrategy(_ strategy: StateHandleable?) {
         self.strategy = strategy
     }
     
-    mutating func execute() throws { 
-        guard let strategy = strategy else { return }
+    mutating func execute() throws {
         let state = (balence: balance, inventory: inventory)
-        let result = strategy.handle(state)
+        guard let result = strategy?.handle(state) else { return }
         try resultHandle(result)
+        
     }
     
     mutating func resultHandle(_ result: Result<State, Error>) throws {
@@ -43,6 +45,7 @@ struct VendingMachine {
         case .success(let newState):
             self.balance = newState.balence
             self.inventory = newState.inventory
+            self.strategy?.complete()
         case .failure(let error):
             throw error
         }
