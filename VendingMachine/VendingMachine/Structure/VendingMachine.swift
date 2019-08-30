@@ -33,7 +33,9 @@ struct VendingMachine {
     
     mutating func execute() throws {
         let state = (balance: balance, inventory: inventory, history: history)
-        guard let result = strategy?.handle(state) else { return }
+        guard
+            let result = strategy?.handle(state)
+            else { return }
         try resultHandle(result)
     }
     
