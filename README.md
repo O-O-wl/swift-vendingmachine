@@ -1,57 +1,147 @@
-# 진행 방법
+## 음료 자판기 
 
-- 자판기 요구사항에 대해 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+---
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+<br>
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+## STEP2
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+###  음료 클래스 구조
+
+<img width="972" alt="스크린샷 2019-08-14 오전 5 14 25" src="https://user-images.githubusercontent.com/39197978/62974092-643fa880-be52-11e9-896c-d62d03785b15.png">
+
+
+
+---
+
+<br>
+
+<br>
+
+<br>
+
+## STEP3
+
+
+
+#### 주요 Protocol
+
+- **`Product`**
+
+  ```swift
+  protocol Product: class {
+      var productName: String { get }
+      var productPrice: Money { get }
+      var isHot: Bool { get }
+      var isDue: Bool { get }
+  }
+  extension Product {
+      var productDescription: String {
+          return "\(productName) \(productPrice)"
+      }
+  }
+  ```
+
+  - 기존의 Beverage 데이터중에 자판기가 핸들링해야 하는 데이터가 존재한다.
+  - 하지만 그렇다고 기존에 있던 `Beverage`의 데이터의 접근제한자를 수정하기 보다는 타입을 확장(**OCP**)해서 사용하는 게 좋다고 판단하여 공개할 변수들만 사용할 수 있게 하였고, 그걸 `Beverage`가 결정할 수 있게 하였다.
+
+  - `VendingMachine` 은 변화에 덜 취약한 추상적인 Product에 의존하게 하여 **DIP**도 최대한 지키게 하려 하였다.
+
+    <br>
+
+- **`MoneyHandleable , TupleListHandable`**
+
+- ```swift
+  protocol MoneyHandleable {
+      func handleMoney(_ handler: (Money) -> Void)
+  }
+  
+  protocol TupleListHandleable {
+      associatedtype Key
+      associatedtype Value
+      func handleTupleList(_ handler: ([(Key, Value)]) -> Void)
+  }
+  ```
+
+  - 내부 데이터를 핸들링 할 수 있는 로직(클로저)를 주입 할 수 있는 인터페이스를 제공하는 프로토콜로 하여 데이터를 가져오는 방식이 아닌 데이터를 처리할 로직을 주입할 수 있게 만들어준다.
+
+  - 데이터를 가져오는 건 OOP에서 권장되지 않을 뿐 아니라, 데이터를 전달하면, 데이터의 양이 클 경우 복사에 따른 비용이 발생하기때문에 **객체 내부에서 자신의 데이터를 직접 처리할 수 있게 일을 시킬 수 있다.** 
+
+    <br>
+
+- **`Statehandable`**
+
+  ```swift
+  
+  protocol StateHandleable {
+      mutating func handle(_ before: State) -> Result<State, Error>
+      func complete()
+  }
+  ```
+
+  - 스트래티지 로서의 역할을 하는 프로토콜이다.
+
+  - 요구사항 분석에서 사용자의 입력에 따른 명령에 따른 **VendingMachine의 행동(메서드)** 계속적으로 추가될 수 있음을 추측했다.
+
+  - 잔돈 : `Balence` / 재고: `Inventory` 를 핸들링하는 행동이 추가될 것이라고 예상했고, 그 행동군을 캡슐화하여 외부에서 주입 할 수 있게 하는 방법을 고려해보았다. 
+
+    <br>
+
+    <br>
+
+    
+
+#### 익스텐션
+
+```swift
+//
+//  Extensions.swift
+//  VendingMachine
+//
+//  Created by 이동영 on 13/08/2019.
+//  Copyright © 2019 JK. All rights reserved.
+//
+
+import Foundation
+
+func print<T: Beverage>(beverage: T) {
+    print("\(type(of: beverage)) - \(beverage.description)")
+}
+// MARK: - Date Extension
+extension Date {
+    var text: String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "yyyyMMdd"
+        return dateFormmater.string(from: self)
+    }
+}
+// MARK: - Int Extesion
+extension Int {
+    var dayDuration: TimeInterval {
+        let secOfDay = 86400
+        return TimeInterval(self * secOfDay)
+    }
+}
+// MARK: - Array Extension
+extension Array where Element == String {
+    var dictionary: [String: Int] {
+        var statistic = [String: Int]()
+        self.forEach { statistic[$0] = (statistic[$0] ?? 0) + 1 }
+        return statistic
+    }
+}
+// MARK: - Dictionary Extension
+extension Dictionary where Key == String, Value == Int {
+    var list: [(String, Int)] {
+        return self.sorted(by: <)
+    }
+}
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachine
-```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachine
-```
+- **처음에 해당 메소드를 사용해야할 객체내부에 정의했으나, 객체의 전체적인 응집도가 떨어졌다.** 
+- 그래서 익스텐션을 고려해봤다. 
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
+---
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
