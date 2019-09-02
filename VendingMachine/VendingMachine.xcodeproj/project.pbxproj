@@ -65,9 +65,10 @@
 		0EC6AA92231CE55F002681A1 /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D422318E1120017BFEE /* ProductStatistic.swift */; };
 		0EC6AA94231D2F6D002681A1 /* InStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AA93231D2F6D002681A1 /* InStockStrategy.swift */; };
 		0EC6AA96231D3226002681A1 /* DeStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AA95231D3226002681A1 /* DeStockStrategy.swift */; };
-		0EF72D3C2317D2670017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
+		0EC6AA98231D4DEE002681A1 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AA97231D4DEE002681A1 /* Authority.swift */; };
+		0EF72D3C2317D2670017BFEE /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* ProductFactory.swift */; };
 		0EF72D3E2317FEF80017BFEE /* StorableFacotoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */; };
-		0EF72D3F2317FF050017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
+		0EF72D3F2317FF050017BFEE /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* ProductFactory.swift */; };
 		0EF72D432318E1120017BFEE /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D422318E1120017BFEE /* ProductStatistic.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		9F300279A87BABAE92F95450 /* Pods_VendingMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD65AA3BB7CF46929BDD741 /* Pods_VendingMachine.framework */; };
@@ -122,7 +123,8 @@
 		0E9B7B0F230EE289008727B3 /* StateHandleableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHandleableFactory.swift; sourceTree = "<group>"; };
 		0EC6AA93231D2F6D002681A1 /* InStockStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockStrategy.swift; sourceTree = "<group>"; };
 		0EC6AA95231D3226002681A1 /* DeStockStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeStockStrategy.swift; sourceTree = "<group>"; };
-		0EF72D3B2317D2670017BFEE /* StorableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFactory.swift; sourceTree = "<group>"; };
+		0EC6AA97231D4DEE002681A1 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
+		0EF72D3B2317D2670017BFEE /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFacotoryTests.swift; sourceTree = "<group>"; };
 		0EF72D422318E1120017BFEE /* ProductStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatistic.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6491032306F95C0088907F /* Request.swift */,
+				0EC6AA97231D4DEE002681A1 /* Authority.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -265,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9B7B0F230EE289008727B3 /* StateHandleableFactory.swift */,
-				0EF72D3B2317D2670017BFEE /* StorableFactory.swift */,
+				0EF72D3B2317D2670017BFEE /* ProductFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -457,7 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EF72D3F2317FF050017BFEE /* StorableFactory.swift in Sources */,
+				0EF72D3F2317FF050017BFEE /* ProductFactory.swift in Sources */,
 				0EF72D3E2317FEF80017BFEE /* StorableFacotoryTests.swift in Sources */,
 				0E9B7B11230F6395008727B3 /* OutputView.swift in Sources */,
 				0E9B7B15230FA331008727B3 /* StateHandleable.swift in Sources */,
@@ -498,7 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EF72D3C2317D2670017BFEE /* StorableFactory.swift in Sources */,
+				0EF72D3C2317D2670017BFEE /* ProductFactory.swift in Sources */,
 				0E3EF168230337C600B27341 /* Americano.swift in Sources */,
 				0E5EC98623069CD7008C7C95 /* InputView.swift in Sources */,
 				0E3F1D972302820500FC08DC /* Beverage.swift in Sources */,
@@ -515,6 +518,7 @@
 				0E3AB98E230D6D4D00C662FE /* PurchaseStrategy.swift in Sources */,
 				0EC6AA94231D2F6D002681A1 /* InStockStrategy.swift in Sources */,
 				0E40C8CB2311293F007576F0 /* Handleable.swift in Sources */,
+				0EC6AA98231D4DEE002681A1 /* Authority.swift in Sources */,
 				0E3F1DB92302A31F00FC08DC /* CafeLatte.swift in Sources */,
 				0E3F1D9E2302832A00FC08DC /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,

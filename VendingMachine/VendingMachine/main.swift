@@ -8,7 +8,9 @@
 
 import Foundation
 // - MARK: - Set Up
-let inventory = StorableFactory.create(quantity: 10)
+let products = ProductFactory.create(quantity: 10)
+
+let inventory = Inventory(products: products)
 
 var vendingMachine = VendingMachine(
     balance: Money(value: 0),

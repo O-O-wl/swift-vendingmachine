@@ -8,13 +8,12 @@
 
 import Foundation
 
-struct StorableFactory {
+struct ProductFactory {
     
-    static func create(categories: [Category] = Category.allCases, quantity: Int) -> Storable {
-        let beverages = categories
+    static func create(categories: [Category] = Category.allCases, quantity: Int) -> [Product] {
+        return categories
             .map { [Product](repeating: $0.instance, count: quantity) }
             .reduce([Product]()) { $0 + $1.map { $0 }}
-        return Inventory(products: beverages)
     }
 }
 
