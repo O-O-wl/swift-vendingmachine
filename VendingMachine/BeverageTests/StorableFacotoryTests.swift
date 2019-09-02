@@ -16,8 +16,10 @@ class StorableFacotoryTests: XCTestCase {
         //When
         let products = StorableFactory.create(categories: [.cola], quantity: quantity)
         //Then
-        XCTAssertEqual(products.statistic.first!.menu, Cola().productDescription)
-        XCTAssertEqual(products.statistic.first!.count, quantity)
+        XCTAssertEqual(products.statistic.first!.productDescription,
+                       Cola().productDescription)
+        XCTAssertEqual(products.statistic.first!.productQuantity,
+                       quantity)
     }
     
     func testCreateAll() {
@@ -28,6 +30,6 @@ class StorableFacotoryTests: XCTestCase {
             .sorted(by: <)
             
         let products = StorableFactory.create(quantity: quantity)
-        XCTAssertEqual(products.statistic.map { $0.menu }, expected )
+        XCTAssertEqual(products.statistic.map { $0.productDescription }, expected )
     }
 }
