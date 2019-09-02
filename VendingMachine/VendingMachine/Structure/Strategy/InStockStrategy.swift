@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InStockStrategy : StateHandleable {
+struct InStockStrategy: StateHandleable {
     private let stockToAdd: Product
     private let completion: (String) -> Void
     
