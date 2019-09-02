@@ -52,7 +52,7 @@ class StrategyTests: XCTestCase {
     func testPurchaseWithSuccess() {
         //Given
         let cola = Cola()
-        let before = state.inventory.statistic[0].count
+        let before = state.inventory.statistic[0].productQuantity
         strategy = PurchaseStrategy(productToPurchaseIndex: 4, completion: { _, _  in })
 
         //When
@@ -65,9 +65,9 @@ class StrategyTests: XCTestCase {
                 return }
         //Then
         XCTAssertEqual(state.balance, givenMoney - cola.productPrice)
-        let coke = state.inventory.statistic.filter { $0.menu == cola.productDescription }
+        let coke = state.inventory.statistic.filter { $0.productDescription == cola.productDescription }
 
-        XCTAssertEqual(coke[0].count, before.advanced(by: -1))
+        XCTAssertEqual(coke[0].productQuantity, before.advanced(by: -1))
 
     }
 
