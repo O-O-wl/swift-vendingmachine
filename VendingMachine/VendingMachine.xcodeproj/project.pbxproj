@@ -64,6 +64,7 @@
 		0E9B7B15230FA331008727B3 /* StateHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3AB989230D584200C662FE /* StateHandleable.swift */; };
 		0EC6AA92231CE55F002681A1 /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D422318E1120017BFEE /* ProductStatistic.swift */; };
 		0EC6AA94231D2F6D002681A1 /* InStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AA93231D2F6D002681A1 /* InStockStrategy.swift */; };
+		0EC6AA96231D3226002681A1 /* DeStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6AA95231D3226002681A1 /* DeStockStrategy.swift */; };
 		0EF72D3C2317D2670017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
 		0EF72D3E2317FEF80017BFEE /* StorableFacotoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */; };
 		0EF72D3F2317FF050017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
@@ -120,6 +121,7 @@
 		0E6491032306F95C0088907F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0E9B7B0F230EE289008727B3 /* StateHandleableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHandleableFactory.swift; sourceTree = "<group>"; };
 		0EC6AA93231D2F6D002681A1 /* InStockStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockStrategy.swift; sourceTree = "<group>"; };
+		0EC6AA95231D3226002681A1 /* DeStockStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeStockStrategy.swift; sourceTree = "<group>"; };
 		0EF72D3B2317D2670017BFEE /* StorableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFactory.swift; sourceTree = "<group>"; };
 		0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFacotoryTests.swift; sourceTree = "<group>"; };
 		0EF72D422318E1120017BFEE /* ProductStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatistic.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				0E3AB98B230D6B9100C662FE /* MoneyInsertStrategy.swift */,
 				0E3AB98D230D6D4D00C662FE /* PurchaseStrategy.swift */,
 				0EC6AA93231D2F6D002681A1 /* InStockStrategy.swift */,
+				0EC6AA95231D3226002681A1 /* DeStockStrategy.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				0E3EF168230337C600B27341 /* Americano.swift in Sources */,
 				0E5EC98623069CD7008C7C95 /* InputView.swift in Sources */,
 				0E3F1D972302820500FC08DC /* Beverage.swift in Sources */,
+				0EC6AA96231D3226002681A1 /* DeStockStrategy.swift in Sources */,
 				0E40C8C923112518007576F0 /* Errorhandler.swift in Sources */,
 				0E5EC98323069470008C7C95 /* VendingMachine.swift in Sources */,
 				0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */,
