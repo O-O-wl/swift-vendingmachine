@@ -8,16 +8,14 @@
 
 import Foundation
 
-enum Authority: Int, CustomStringConvertible, CaseIterable {
+enum Authority: Int {
     case admin = 1
     case user
+    case none
     
-    var description: String {
-        switch self {
-        case .admin:
-            return "관리자 모드"
-        case .user:
-            return "사용자 모드"
-        }
+    init(input: String) {
+        let modeIndex = Int(input) ?? -1
+        self = Authority.init(rawValue: modeIndex) ?? .none
     }
+    
 }
