@@ -11,7 +11,9 @@ import Foundation
 struct OutputView {
     
     static let showBalance: (Money) -> Void = {
-        print("현재 투입한 금액은 \($0)입니다.💵💰 ")
+        print("=================================================")
+        print("\t현재 투입한 금액은 \($0)입니다.💵💰 ")
+        print("=================================================")
     }
     
     static let showStatistic: ([ProductStatistic]) -> Void = {
@@ -25,7 +27,7 @@ struct OutputView {
     
     static let showInsertMoney: (Money) -> Void = {
         print("=================================================")
-        print("\($0)을 추가하셨습니다. ⬅️ 💴💶💷")
+        print("\t\($0)을 추가하셨습니다. ⬅️ 💴💶💷")
         print("=================================================")
     }
     
