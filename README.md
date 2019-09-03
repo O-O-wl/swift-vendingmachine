@@ -175,3 +175,113 @@ DTO 용도 타입이라면 튜플 보다 명확할 것 같았어요
 
 ------
 
+
+
+---
+
+
+
+## STEP4
+
+이전 `StateHandleable` 을 스트래티지 패턴으로 구현해두었다.
+
+그래서 추가적인 재고추가 / 재고 삭제 와 같은 자판기의 상태 핸들링에 비교적 쉽게 할 수 있었으나,
+
+스트래티지 행동 자체에 이제 권한이 추가되었다. (관리자 / 사용자). 
+
+<br>이런 식의 추가 기능이 아닌, 각각의 기능에 추가적인 정보(현재의 권한) 를 필요로 하는 경우, 수정이 연쇄적으로 일어나야했다.
+
+현재 프로그램에서 데이터를 한 단계씩 가공해 나간다.
+
+**`input(String)` ➡️ `Request(enum)` ➡️  ` Strategy(StateHandleable)`**
+
+약하지만 결합되이 었는 느낌이 들었다. 
+
+권한이라는 요구사항이 추가되자, `Request` 열거형의 `switch` 문에서, `error` 를 뿜어냈다.
+
+다행히 `strategy`  에 관련된 부분은 영향을 안 받을 수 있었다.
+
+- **`RequestFactory`**
+
+```swift
+struct RequestFactory {
+    static func create(authority: Authority, input: String) throws -> Request {
+        let numbers = input
+            .split(separator: " ")
+            .map { Int($0) }
+        guard
+            numbers.count == 2,
+            let menu = numbers[0],
+            let value = numbers[1],
+            value > 0
+            else { throw InputError.wrongFormat }
+        switch (authority, menu) {
+        case (.admin, 1):
+            guard
+                let product = Category(rawValue: value - 1)?.instance
+                else { throw InputError.wrongFormat }
+            return .inStock(product: product)
+        case (.admin, 2):
+            return .deStock(index: value)
+        case (.user, 1):
+            return .insert(amount: value)
+        case (.user, 2):
+            return .purchase(index: value)
+        default:
+            throw InputError.invalidMenu
+        }
+    }
+    
+    enum InputError: LocalizedError {
+        case wrongFormat
+        case invalidMenu
+        
+        var errorDescription: String? {
+            switch self {
+            case .wrongFormat:
+                return "올바른 포맷이 아닙니다."
+            case .invalidMenu:
+                return "해당하지 메뉴가 존재하지 않습니다."
+            }
+        }
+    }
+}
+
+```
+
+- **`StateHandleableFactory`**
+
+```swift
+struct StateHandleableFactory {
+    static func create(_ request: Request) -> StateHandleable {
+        switch request {
+        case .insert(amount: let value):
+            let money = Money(value: value)
+            return MoneyInsertStrategy(moneyToAdd: money,
+                                       completion: OutputView.showInsertMoney)
+        case .purchase(index: let value):
+            let index = value - 1 
+            return PurchaseStrategy(productToPurchaseIndex: index,
+                                    completion: OutputView.showPurchase)
+        case .inStock(let product):
+            return InStockStrategy(stockToAdd: product,
+                                   completion: OutputView.showInStock)
+        case .deStock(index: let value):
+            let index = value - 1 
+            return DeStockStrategy(indexOfStockToRemove: index,
+                                   completion: OutputView.showDeStock)
+        }
+    }
+}
+```
+
+
+
+요구사항 변경에 대한 예측이 내가 원하는 대로 되지 않았을 때, 그에 따른 비용은 컸다. 
+
+커맨드 패턴과 스트래티지 패턴 사이에서 마지막에 망설였다.
+
+하지만 커맨드 패턴은 내가 원하는 것에 맞지 않았다. 
+
+나는 `Receiver`에 해당하는 객체를 `VendingMachine `내부에 숨겨두고, `VendingMachine`이 주체적으로 결정하기를 원했다.
+
