@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct InputViewFactory {
+    static func create(_ mode: Authority = .none) -> InputView {
+        switch mode {
+        case .admin:
+            return AdminInputView()
+        case .user:
+            return UserInputView()
+        case .none:
+            return SelectInputView()
+        }
+    }
+}
