@@ -19,11 +19,11 @@ struct ProductFactory {
 
 enum Category: Int, CustomStringConvertible, CaseIterable {
     case strawberryMilk = 0
-    case chocolateMilk
-    case cola
-    case energyDrink
     case americano
+    case energyDrink
+    case chocolateMilk
     case cafeLatte
+    case cola
     
     var instance: Beverage {
         switch self {
