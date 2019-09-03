@@ -18,7 +18,7 @@ struct ProductFactory {
 }
 
 enum Category: Int, CustomStringConvertible, CaseIterable {
-    case strawberryMilk = 1
+    case strawberryMilk = 0
     case chocolateMilk
     case cola
     case energyDrink
