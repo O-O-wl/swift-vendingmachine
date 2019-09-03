@@ -29,10 +29,23 @@ struct OutputView {
         print("\($0)을 성공적으로 구매했습니다. \($1)을 차감합니다.💸\n")
     }
     
+    static let showCategory: ([Category]) -> Void = {
+        let sentence = $0.reduce("🧾 추가할 음료수를 선택해주세요. \n") { "\($0) \($1.rawValue)) \($1)\n" }
+        print(sentence)
+    }
+    
+    static let showAddStock: (String) -> Void = {
+        print("\($0)를 재고에 추가하셨습니다. ⬅️ 🥛🥤☕️ ")
+    }
+    
+    static let showDeStock: (String) -> Void = {
+        print("\($0)을 재고를 정리하였습니다. ⛔️ 🥛🥤☕️")
+    }
+    
     static let showError: (Error) -> Void = {
         print("""
             ===================⚠️ Error ⚠️===================
-                            \($0.localizedDescription)
+            \($0.localizedDescription)
             =================================================
             """)
     }
