@@ -11,8 +11,10 @@ import Foundation
 enum Request {
     case insert(amount: Int)
     case purchase(index: Int)
+    case inStock(index: Int)
+    case deStock(index: Int)
     
-    init(input: String) throws {
+    init(authority: Authority, input: String) throws {
         let ints = input
             .split(separator: " ")
             .map { Int($0) }
@@ -22,15 +24,18 @@ enum Request {
             let value = ints[1],
             value > 0
             else { throw InputError.wrongFormat }
-        switch menu {
-        case 1:
+        switch (authority, menu) {
+        case (.admin, 1):
+            self = .inStock(index: value)
+        case (.admin, 2):
+            self = .deStock(index: value)
+        case (.user, 1):
             self = .insert(amount: value)
-        case 2:
+        case (.user, 2):
             self = .purchase(index: value)
         default:
             throw InputError.invalidMenu
         }
-        
     }
     
     enum InputError: LocalizedError {
@@ -46,5 +51,5 @@ enum Request {
             }
         }
     }
+    
 }
-
