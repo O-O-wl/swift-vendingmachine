@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DeStockStrategy {
+struct DeStockStrategy: StateHandleable {
     private let indexOfStockToRemove: Int
     private let completion: (String) -> Void
     private var removedStock: Product?

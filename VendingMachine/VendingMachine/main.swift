@@ -17,12 +17,26 @@ var vendingMachine = VendingMachine(
     inventory: inventory,
     history: History())
 
+var mode: Authority
+var inputView: InputView
+var inputString = ""
+
 while vendingMachine.isOnSale {
-    vendingMachine.handleMoney(OutputView.showBalance)
+    
+    inputView = InputViewFactory.create(.none)
+    inputView.showMenu()
+    inputString = inputView.fetchInput()
+    mode = Authority(input: inputString)
+    
     vendingMachine.handleProductStatistic(OutputView.showStatistic)
-    let inputString = InputView.fetchInput()
+    vendingMachine.handleMoney(OutputView.showBalance)
+    
+    inputView = InputViewFactory.create(mode)
+    inputView.showMenu()
+    inputString = inputView.fetchInput()
+    
     do {
-        let request = try Request.init(input: inputString)
+        let request = try RequestFactory.create(authority: mode, input: inputString)
         let order = StateHandleableFactory.create(request)
         vendingMachine.setStrategy(order)
         try vendingMachine.execute()
