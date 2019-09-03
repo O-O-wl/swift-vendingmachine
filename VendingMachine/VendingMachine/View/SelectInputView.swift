@@ -23,8 +23,8 @@ struct SelectInputView: InputView {
         }
     }
     
-    func fetchInput() -> String {
+    func showMenu() {
         Menu.allCases.forEach { print($0) }
-        return readLine() ?? ""
     }
+    
 }
