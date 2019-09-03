@@ -13,12 +13,12 @@ struct ProductFactory {
     static func create(categories: [Category] = Category.allCases, quantity: Int) -> [Product] {
         return categories
             .map { [Product](repeating: $0.instance, count: quantity) }
-            .reduce([Product]()) { $0 + $1.map { $0 }}
+            .reduce([Product]()) { $0 + $1.map { $0 } }
     }
 }
 
-enum Category: CaseIterable {
-    case strawberryMilk
+enum Category: Int, CustomStringConvertible, CaseIterable {
+    case strawberryMilk = 1
     case chocolateMilk
     case cola
     case energyDrink
@@ -42,4 +42,20 @@ enum Category: CaseIterable {
         }
     }
     
+    var description: String {
+        switch self {
+        case .strawberryMilk:
+            return "딸기우유"
+        case .chocolateMilk:
+            return "초코우유"
+        case .cola:
+            return "콜라"
+        case .energyDrink:
+            return "에너지드링크"
+        case .americano:
+            return "아메리카노"
+        case .cafeLatte:
+            return "카페라떼"
+        }
+    }
 }
