@@ -19,6 +19,13 @@ struct StateHandleableFactory {
             let index = value - 1 
             return PurchaseStrategy(productToPurchaseIndex: index,
                                     completion: OutputView.showPurchase)
+        case .inStock(let product):
+            return InStockStrategy(stockToAdd: product,
+                                   completion: OutputView.showInStock)
+        case .deStock(index: let value):
+            let index = value - 1 
+            return DeStockStrategy(indexOfStockToRemove: index,
+                                   completion: OutputView.showDeStock)
         }
     }
 }
