@@ -34,7 +34,7 @@ struct OutputView {
         print(sentence)
     }
     
-    static let showAddStock: (String) -> Void = {
+    static let showInStock: (String) -> Void = {
         print("\($0)를 재고에 추가하셨습니다. ⬅️ 🥛🥤☕️ ")
     }
     
