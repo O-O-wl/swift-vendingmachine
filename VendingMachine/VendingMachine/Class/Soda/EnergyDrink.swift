@@ -52,4 +52,8 @@ class EnergyDrink: Soda {
                    isSugerFree: isSugerFree)
     }
     
+    required convenience init () {
+        self.init(price: EnergyDrink.recommendedConsumerPrice,
+                  name: "에너지드링크")
+    }
 }

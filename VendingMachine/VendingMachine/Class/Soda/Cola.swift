@@ -51,4 +51,9 @@ class Cola: Soda {
                    temperature: temperature,
                    isSugerFree: isSugerFree)
     }
+    
+    required convenience init () {
+        self.init(price: Cola.recommendedConsumerPrice,
+                  name: "콜라")
+    }
 }

@@ -51,4 +51,9 @@ class CafeLatte: Coffee {
                    temperature: temperature,
                    coffeeBean: coffeeBean)
     }
+   
+    required convenience init () {
+        self.init(price: CafeLatte.recommendedConsumerPrice,
+                  name: "카페라떼")
+    }
 }

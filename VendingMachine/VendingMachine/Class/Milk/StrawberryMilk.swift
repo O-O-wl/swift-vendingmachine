@@ -33,8 +33,8 @@ class StrawberryMilk: Milk, Sweetable {
     /// ⚠️ if this parameter is greater than `capacity`, this value be allocated `conpacity`
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = recommendedConsumerPrice,
-         name: String = "딸기우유",
+         price: Int,
+         name: String,
          productDate: Date = Date(),
          storeDuration: Int = 7,
          temperature: Int = standardTemperature,
@@ -52,6 +52,11 @@ class StrawberryMilk: Milk, Sweetable {
                    temperature: temperature,
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
+    }
+    
+    required convenience init () {
+        self.init(price: StrawberryMilk.recommendedConsumerPrice,
+                  name: "딸기우유")
     }
     
 }

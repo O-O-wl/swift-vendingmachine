@@ -27,8 +27,8 @@ class Milk: Beverage {
     init(
         brand: String = "제조사",
         capacity: Int = 0,
-        price: Int = 0,
-        name: String = "우유",
+        price: Int,
+        name: String,
         productDate: Date = Date(),
         storeDuration: Int = 7,
         temperature: Int = standardTemperature,
@@ -44,6 +44,11 @@ class Milk: Beverage {
                    productDate: productDate,
                    storeDuration: storeDuration,
                    temperature: temperature)
+    }
+    
+    required convenience init () {
+        self.init(price: 0,
+                  name: "우유")
     }
 }
 

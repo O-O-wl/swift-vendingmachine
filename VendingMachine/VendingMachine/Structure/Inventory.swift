@@ -25,7 +25,6 @@ struct Inventory: Storable {
     var statistic: [ProductStatistic] {
         var index = 0
         return stocks
-            .map { $0.productDescription }
             .countDictionary
             .sortedList
             .map {
@@ -46,8 +45,8 @@ struct Inventory: Storable {
     func search(at index: Int) -> Product? {
         guard index < statistic.count else { return nil }
         let productDescription = statistic[index].productDescription
-        var product = stocks.filter { $0.productDescription == productDescription }
-        return product.popLast()
+        let product = stocks.last { $0.productDescription == productDescription }
+        return product
     }
     
     func filter(by option: Option) -> [Product] {
@@ -78,7 +77,6 @@ enum Option {
             return { $0.isHot }
         case .due:
             return { $0.isDue }
-            
         }
         
     }

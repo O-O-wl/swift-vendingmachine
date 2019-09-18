@@ -31,4 +31,9 @@ class Soda: Beverage {
                    storeDuration: storeDuration,
                    temperature: temperature)
     }
+    
+    required convenience init () {
+        self.init(price: 0,
+                  name: "탄산음료")
+    }
 }
