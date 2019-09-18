@@ -22,8 +22,13 @@ struct RequestFactory {
         switch (authority, menu) {
         case (.admin, 1):
             guard
+<<<<<<< HEAD
                 let product = ProductFactory.create(index: value)
                 else { throw InputError.invalidMenu }
+=======
+                let product = Category(rawValue: value - 1)?.instance
+                else { throw InputError.wrongFormat }
+>>>>>>> 9498e0995fdfb37413a4108d718b159557062cc1
             return .inStock(product: product)
         case (.admin, 2):
             return .deStock(index: value)

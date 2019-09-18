@@ -23,8 +23,15 @@ struct UserInputView: InputView {
         }
     }
     
+<<<<<<< HEAD
     func fetchInput() -> String {
         Menu.allCases.forEach { print($0) }
         return readLine() ?? ""
     }
+=======
+    func showMenu() {
+        Menu.allCases.forEach { print($0) }
+    }
+    
+>>>>>>> 9498e0995fdfb37413a4108d718b159557062cc1
 }

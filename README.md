@@ -285,6 +285,7 @@ struct StateHandleableFactory {
 
 나는 `Receiver`에 해당하는 객체를 `VendingMachine `내부에 숨겨두고, `VendingMachine`이 주체적으로 결정하기를 원했다.
 
+<<<<<<< HEAD
 ---
 
 <br>
@@ -329,3 +330,5 @@ struct StateHandleableFactory {
     - 입력받은 값을 핸들링 하는 로직이 달라진다.
 
     
+=======
+>>>>>>> 9498e0995fdfb37413a4108d718b159557062cc1
